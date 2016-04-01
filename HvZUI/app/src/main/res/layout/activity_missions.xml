@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.Missions">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:src="@drawable/hbg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/missionBody"
+        android:background="#ff7309"
+        android:autoText="true"
+        android:text=" MISSION HERE"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:singleLine="false"
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView4"
+        android:background="#ff7309"
+        android:autoText="true"
+        android:text=" 0:23 Hours Left"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:singleLine="false"
+        android:layout_alignBottom="@+id/imageView5"
+        android:layout_alignLeft="@+id/missionBody"
+        android:layout_alignStart="@+id/missionBody"
+        android:layout_marginBottom="60dp" />
+</RelativeLayout>

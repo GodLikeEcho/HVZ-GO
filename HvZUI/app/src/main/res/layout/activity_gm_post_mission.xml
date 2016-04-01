@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.GM_post_mission">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/hbg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/label2"
+        android:text="Mission time (minutes)"
+        android:background="#ff7309"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="20dp"
+        android:autoText="true" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/mission_time"
+        android:background="#fc9f59"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="230dp"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Post Mission"
+        android:id="@+id/post_mission"
+        android:backgroundTint="#fb8a00"
+        android:background="#ffffff"
+        android:layout_marginTop="400dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="post_mission_click" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text=""
+        android:background="#fc9f59"
+        android:id="@+id/textView3"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:background="#fc9f59"
+        android:id="@+id/mission_details"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="54dp"
+         />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zombie Mission"
+            android:id="@+id/is_zombie_mission"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:buttonTint="@color/RBcolor"
+            android:textColor="#000000"
+            android:checked="true"
+            android:clickable="false" />
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Human Mission"
+            android:id="@+id/is_human_mission"
+            android:layout_gravity="center_horizontal"
+            android:buttonTint="@color/RBcolor"
+            android:textColor="#000000" />
+
+
+    </RadioGroup>
+
+</RelativeLayout>

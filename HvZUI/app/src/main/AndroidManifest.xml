@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="redacted.hvzui" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainMenu" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".UserMenu"
+            android:label="@string/title_activity_user_menu"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".ModReport" >
+        </activity>
+        <activity android:name=".Missions" >
+        </activity>
+        <activity android:name=".Rules" >
+        </activity>
+        <activity
+            android:name=".Z_user_menu"
+            android:label="@string/title_activity_z_user_menu"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".Z_rules" >
+        </activity>
+        <activity android:name=".Z_missions" >
+        </activity>
+        <activity android:name=".Z_tag_report" >
+        </activity>
+        <activity android:name=".Z_mod_report" >
+        </activity>
+        <activity android:name=".Z_settings" >
+        </activity>
+        <activity android:name=".settings" >
+        </activity>
+        <activity android:name=".sign_up" >
+        </activity>
+        <activity android:name=".GM_user_menu" >
+        </activity>
+        <activity android:name=".GM_view_reports" >
+        </activity>
+        <activity android:name=".GM_ban_player" >
+        </activity>
+        <activity android:name=".GM_game_settings" >
+        </activity>
+        <activity android:name=".GM_game_creation" >
+        </activity>
+        <activity android:name=".GM_post_mission" >
+        </activity>
+        <activity
+            android:name=".Z_chat_room"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".H_chat_room"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".A_chat_room"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity android:name=".GM_choose_OZ" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.GM_user_menu">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/hbg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="View Reports"
+        android:id="@+id/view_reports"
+        android:background="#fb8a00"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/TimerBox"
+        android:layout_alignLeft="@+id/edit_settings"
+        android:layout_alignStart="@+id/edit_settings"
+        android:onClick="GM_view_reports_Click" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Edit Game Settings"
+        android:id="@+id/edit_settings"
+        android:background="#fb8a00"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/view_reports"
+        android:layout_centerHorizontal="true"
+        android:onClick="GM_edit_settings_click" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Ban Players"
+        android:id="@+id/ban_players"
+        android:background="#fb8a00"
+        android:layout_below="@+id/edit_settings"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:onClick="GM_ban_player_Click" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Post a Mission"
+        android:id="@+id/post_mission"
+        android:background="#fb8a00"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/ban_players"
+        android:layout_centerHorizontal="true"
+        android:onClick="GM_post_mission_Click" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Chat"
+        android:id="@+id/chat"
+        android:background="#fb8a00"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/post_mission"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/TimerBox"
+        android:layout_alignParentTop="true"
+        android:background="#ff7309"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:autoText="true" />
+
+</RelativeLayout>
