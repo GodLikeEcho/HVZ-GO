@@ -58,7 +58,7 @@ public class Z_rules extends AppCompatActivity {
         if (preferences.getBoolean("ColorBlind", false)) {
             View box1 = this.findViewById(R.id.Zrules);
             box1.setBackgroundColor(0xffffffff);
-            
+
         }
     }
 }

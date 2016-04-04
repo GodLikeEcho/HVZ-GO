@@ -78,6 +78,7 @@
         </activity>
         <activity android:name=".GM_choose_OZ" >
         </activity>
+        <receiver android:name=".Z_user_menu$AlarmReceiver"></receiver>
     </application>
 
 </manifest>
