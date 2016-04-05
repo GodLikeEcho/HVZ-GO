@@ -33,7 +33,7 @@ public class Z_user_menu extends AppCompatActivity {
         setColor();
     }
 
-    public void startAlarm(View view) {
+    public void startAlarm() {
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         int interval = 10000;
 
