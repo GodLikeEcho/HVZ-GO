@@ -26,12 +26,13 @@
         android:nestedScrollingEnabled="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="34dp" />
+        android:layout_marginBottom="34dp"
+        android:onClick="zreport" />
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="200dp"
-        android:id="@+id/editText"
+        android:id="@+id/reportDetails"
         android:hint="Please type report here"
         android:background="#910a0a"
         android:autoText="true"
@@ -44,11 +45,12 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_ViolationType"
-        android:layout_centerHorizontal="true"
         android:entries="@array/report_reasons"
         android:spinnerMode="dropdown"
-        android:layout_above="@+id/editText"
-        android:background="#910a0a" />
+        android:background="#910a0a"
+        android:layout_above="@+id/reportDetails"
+        android:layout_alignLeft="@+id/reportDetails"
+        android:layout_alignStart="@+id/reportDetails" />
 
 
 </RelativeLayout>

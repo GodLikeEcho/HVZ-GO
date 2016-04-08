@@ -36,8 +36,7 @@
         <activity
             android:name=".Z_user_menu"
             android:label="@string/title_activity_z_user_menu"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity android:name=".Z_rules" >
         </activity>

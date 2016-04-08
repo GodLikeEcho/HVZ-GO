@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class sign_up extends AppCompatActivity {
 
@@ -126,6 +129,21 @@ public class sign_up extends AppCompatActivity {
         }
     }
 
+    //static pattern for matching emails
+
+
+    //checker for email validation
+    private boolean checkEmail(String email)
+    {
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+
+    }
+
     //onclick event for signing up, verifys information matches before sending it on
     public void verify_and_send(View v){
 
@@ -152,11 +170,14 @@ public class sign_up extends AppCompatActivity {
         {
             Toast.makeText(getBaseContext(), "Emails do not match", Toast.LENGTH_LONG).show();
         }
+        else if(!checkEmail(email))
+        {
+            Toast.makeText(getBaseContext(), "Email is not valid", Toast.LENGTH_LONG).show();
+        }
         else
         {
             (new AddPlayer()).execute(username, password, email);
             //package and send the data to server for verification and addtion to the database
-
         }
     }
 }

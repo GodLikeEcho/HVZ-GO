@@ -37,7 +37,7 @@
         android:background="#fb8a00"
         android:autoText="true"
         android:clickable="true"
-
+        android:password="true"
         android:layout_above="@+id/confirm_password"
         android:layout_centerHorizontal="true" />
 
@@ -49,6 +49,7 @@
         android:background="#fb8a00"
         android:autoText="true"
         android:clickable="true"
+        android:password="true"
         android:layout_above="@+id/email"
         android:layout_alignLeft="@+id/email"
         android:layout_alignStart="@+id/email"

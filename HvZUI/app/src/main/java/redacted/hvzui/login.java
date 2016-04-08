@@ -1,9 +1,12 @@
 package redacted.hvzui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -35,17 +38,14 @@ public class login extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    public String returned;
-
     // Async Task override function to run the networking in a new thread
-    private class verifyLogin extends AsyncTask<String, Integer, Boolean>
+    private class verifyLogin extends AsyncTask<String, Integer, String>
     {
+
         @Override
-        // The function to override
-        protected Boolean doInBackground(String... params)
-        {
+        protected String doInBackground(String... params) {
             // For returning
-            boolean res = false;
+            String returnString = "";
 
             String user = params[0];
             String pass = params[1];
@@ -73,7 +73,7 @@ public class login extends AppCompatActivity {
                 // Log for debugging
                 Log.v("prep", "Preparing to connect");
 
-                String returnString = "";
+
 
                 // More logging
                 Log.v("connected", "successful connection, preparing to write");
@@ -95,8 +95,7 @@ public class login extends AppCompatActivity {
                 int responseCode = conn.getResponseCode();
 
                 // If the response is the one we are looking for
-                if (responseCode == HttpURLConnection.HTTP_OK)
-                {
+                if (responseCode == HttpURLConnection.HTTP_OK) {
 
 
                     Log.v("read", "Beginning read");
@@ -108,8 +107,7 @@ public class login extends AppCompatActivity {
                     String line = "";
 
                     // As long as there is stuff to read, append each line to the returnstring variable
-                    while((line = in.readLine()) != null)
-                    {
+                    while ((line = in.readLine()) != null) {
                         Log.v("read", line);
                         returnString += line;
                     }
@@ -117,14 +115,7 @@ public class login extends AppCompatActivity {
                     //close our reader
                     in.close();
 
-                    // If we received a positive response (i.e. the username/pass combo is valid
-                    if(returnString.equals("pass"))
-                    {
-                        res = true;
-                    }
-
                     Log.v("read", "Read complete");
-
                 }
 
             } catch (MalformedURLException e) {
@@ -132,22 +123,42 @@ public class login extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            return res;
+            Log.v("returning", "here");
+            return returnString;
         }
 
         @Override
-        protected void onPostExecute(Boolean aBoolean) {
-            super.onPostExecute(aBoolean);
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
             //if the user/pass is valid
-            if(aBoolean)
+            Log.v("process", "begin processing return");
+            Log.v("recieved", s);
+            if(!s.equals("fail"))
             {
-                // Move the user to their main menu
-                Intent intnt = new Intent(login.this, UserMenu.class);
-                startActivity(intnt);
+                if(s.equals("Human"))
+                {
+                    Log.v("process", "moving to human ui");
+                    // Move the user to their main menu
+                    Intent intnt = new Intent(login.this, UserMenu.class);
+                    startActivity(intnt);
+                }
+                else if(s.equals("Zombie"))
+                {
+                    Log.v("process", "moving to login ui");
+                    Intent intnt = new Intent(login.this, Z_user_menu.class);
+                    startActivity(intnt);
+                }
+                else if(s.equals("Moderator"))
+                {
+                    Log.v("process", "moving to moderator ui");
+                    Intent intnt = new Intent(login.this, GM_user_menu.class);
+                    startActivity(intnt);
+                }
             }
             else
             {
+                Log.v("process", "login failed");
                 // If it is invalid, notify the user of this
                 Toast.makeText(getBaseContext(), "invalid Username/Password combination", Toast.LENGTH_LONG).show();
             }
@@ -160,7 +171,16 @@ public class login extends AppCompatActivity {
         String username = usr.getText().toString();
         String password = pwd.getText().toString();
 
+
+        Log.v("network", "entering network thread");
         (new verifyLogin()).execute(username, password);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("username", username);
+        editor.commit();
+
     }
 
 }

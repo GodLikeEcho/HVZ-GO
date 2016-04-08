@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="redacted.hvzui.GM_view_reports">
 
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,4 +15,34 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
+
+    <ListView
+        android:id="@+id/reportlist"
+        android:scrollbars="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="430dip"
+        android:layout_gravity="fill_vertical"
+        android:layout_alignParentBottom="true"
+        android:background="#ff9d00">
+    </ListView>
+
+    <Spinner
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/reportTypeSpinner"
+        android:background="#ffae00"
+        android:entries="@array/report_reasons"
+        android:spinnerMode="dropdown"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="Go"
+        android:id="@+id/getReports"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/reportTypeSpinner"
+        android:layout_toEndOf="@+id/reportTypeSpinner" />
 </RelativeLayout>
