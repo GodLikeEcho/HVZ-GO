@@ -1,5 +1,6 @@
 package redacted.hvzui;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class Z_missions extends AppCompatActivity {
 
     }
 
-    private class getMission extends AsyncTask<Void, Integer, ArrayList<String>> {
+    public class getMission extends AsyncTask<Void, Integer, ArrayList<String>> {
 
         @Override
         protected ArrayList<String> doInBackground(Void... params) {
@@ -82,10 +83,15 @@ public class Z_missions extends AppCompatActivity {
         protected void onPostExecute(ArrayList<String> strings) {
             super.onPostExecute(strings);
 
+            //creates an instance of the global preferences
+            String PREF_FILE_NAME = "PrefFile";
+            final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+            final SharedPreferences.Editor edit = preferences.edit();
+
             //read the rules text file and display it
             StringBuilder text = new StringBuilder();
 
-            String line;
+            //String line;
             //loop through the file and read the rules
             for (int i = 0; i < strings.size(); i++) {
                 text.append(strings.get(i));
@@ -94,6 +100,22 @@ public class Z_missions extends AppCompatActivity {
 
             //set the textviews text to those read from the rules
             TextView output = (TextView) findViewById(R.id.missionBody);
+            String old = preferences.getString("mission", " ");
+            if( old.equals(text.toString()))
+            {
+                //commit prefs on change
+                edit.putBoolean("missionUpdate", false);
+                edit.commit();
+                System.out.println(preferences.getAll());
+            }
+            else
+            {
+                //commit prefs on change
+                edit.putBoolean("missionUpdate", true);
+                edit.putString("mission", text.toString());
+                edit.commit();
+                System.out.println(preferences.getAll());
+            }
 
             output.setText(text);
 
