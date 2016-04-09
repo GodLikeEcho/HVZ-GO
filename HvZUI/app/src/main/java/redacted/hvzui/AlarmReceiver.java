@@ -20,7 +20,10 @@ public class AlarmReceiver extends BroadcastReceiver {
         Toast.makeText(arg0, "I'm running", Toast.LENGTH_SHORT).show();
         Log.v("AlarmReciever", "Recieved alarm");
 
-        new (missions.getMission()).execute();
+        //have to create local instance of activity
+        Missions mission = new Missions();
+
+        mission.new getMission().execute();
 
 
 

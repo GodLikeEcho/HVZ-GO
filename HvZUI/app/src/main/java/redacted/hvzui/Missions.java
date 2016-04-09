@@ -1,5 +1,6 @@
 package redacted.hvzui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -22,15 +23,18 @@ import java.util.ArrayList;
 
 public class Missions extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_missions);
 
+
         (new getMission()).execute();
     }
 
-    private class getMission extends AsyncTask<Void, Integer, ArrayList<String>> {
+    protected class getMission extends AsyncTask<Void, Integer, ArrayList<String>> {
 
         @Override
         protected ArrayList<String> doInBackground(Void... params) {
