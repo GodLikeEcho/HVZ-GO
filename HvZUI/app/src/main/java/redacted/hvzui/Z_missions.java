@@ -97,9 +97,11 @@ public class Z_missions extends AppCompatActivity {
                 text.append(strings.get(i));
                 text.append('\n');
             }
+            boolean found = false;
 
             //set the textviews text to those read from the rules
-            TextView output = (TextView) findViewById(R.id.missionBody);
+            //TextView output = (TextView) findViewById(R.id.missionBody);
+
             String old = preferences.getString("mission", " ");
             if( old.equals(text.toString()))
             {
@@ -117,7 +119,8 @@ public class Z_missions extends AppCompatActivity {
                 System.out.println(preferences.getAll());
             }
 
-            output.setText(text);
+            //output.setText(text);
+
 
         }
     }
