@@ -141,15 +141,15 @@ public class GM_make_alert extends AppCompatActivity {
 
         if(target_group.equals("Alert Everyone"))
         {
-
+            (new postAlert()).execute("Everyone", post_body);
         }
         else if(target_group.equals("Alert Humans"))
         {
-
+            (new postAlert()).execute("Human", post_body);
         }
         else if(target_group.equals("Alert Zombies"))
         {
-
+            (new postAlert()).execute("Zombie", post_body);
         }
 
     }

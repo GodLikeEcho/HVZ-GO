@@ -25,6 +25,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         mission.new getMission().execute();
 
+        MainMenu main = new MainMenu();
+        main.new getH_Alert().execute();
+
+        Z_user_menu zmain = new Z_user_menu();
+        zmain.new getZ_Alert().execute();
 
 
     }
