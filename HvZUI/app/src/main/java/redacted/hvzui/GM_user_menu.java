@@ -28,6 +28,12 @@ public class GM_user_menu extends AppCompatActivity {
         startActivity(intnt);
     }
 
+    public void GM_post_alert_Click(View v)
+    {
+        Intent intnt = new Intent(this, GM_make_alert.class);
+        startActivity(intnt);
+    }
+
     public void GM_view_reports_Click(View v)
     {
         Intent intnt = new Intent(this, GM_view_reports.class);

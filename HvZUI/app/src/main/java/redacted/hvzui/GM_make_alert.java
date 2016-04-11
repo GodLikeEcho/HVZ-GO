@@ -1,59 +1,49 @@
 package redacted.hvzui;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
-public class login extends AppCompatActivity {
+public class GM_make_alert extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_gm_make_alert);
     }
+    protected class postAlert extends AsyncTask<String, Integer, String>{
 
-    // Async Task override function to run the networking in a new thread
-    private class verifyLogin extends AsyncTask<String, Integer, String>
-    {
 
         @Override
         protected String doInBackground(String... params) {
-            // For returning
             String returnString = "";
 
-            String user = params[0];
-            String pass = params[1];
+            String target = params[0];
+            String message = params[1];
 
             try {
                 //Connection Parameters
                 URL url;
-                url = new URL( "http://www.hvz-go.com/appLogin.php" );
+                url = new URL( "http://www.hvz-go.com/postAlert.php" );
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                 conn.setDoOutput(true);
@@ -63,17 +53,13 @@ public class login extends AppCompatActivity {
 
                 // Prepare the parameters to be passed
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", user)
-                        .appendQueryParameter("password", pass);
+                        .appendQueryParameter("Faction", target)
+                        .appendQueryParameter("Message", message);
 
                 String query = builder.build().getEncodedQuery();
 
-
-
                 // Log for debugging
                 Log.v("prep", "Preparing to connect");
-
-
 
                 // More logging
                 Log.v("connected", "successful connection, preparing to write");
@@ -131,61 +117,40 @@ public class login extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            //if the user/pass is valid
-            Log.v("process", "begin processing return");
-            Log.v("recieved", s);
-            if(!s.equals("fail"))
+            if(s.equals("success"))
             {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(login.this);
-
-                SharedPreferences.Editor editor = prefs.edit();
-
-                editor.putString("Faction", s);
-                editor.commit();
-
-                if (s.equals("Human"))
-                {
-                    Log.v("process", "moving to human ui");
-                    // Move the user to their main menu
-                    Intent intnt = new Intent(login.this, UserMenu.class);
-                    startActivity(intnt);
-                } else if (s.equals("Zombie"))
-                {
-                    Log.v("process", "moving to login ui");
-                    Intent intnt = new Intent(login.this, Z_user_menu.class);
-                    startActivity(intnt);
-                }
-                else if(s.equals("Moderator"))
-                {
-                    Log.v("process", "moving to moderator ui");
-                    Intent intnt = new Intent(login.this, GM_user_menu.class);
-                    startActivity(intnt);
-                }
+                EditText post_body_text = (EditText) findViewById(R.id.alert_details);
+                post_body_text.setText("");
+                Toast.makeText(getBaseContext(), "Alert posted successfully", Toast.LENGTH_LONG).show();
             }
             else
             {
-                Log.v("process", "login failed");
-                // If it is invalid, notify the user of this
-                Toast.makeText(getBaseContext(), "invalid Username/Password combination", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Alert posting failed", Toast.LENGTH_LONG).show();
             }
         }
     }
 
-    public void goToMainScreen(View v) {
-        EditText usr = (EditText)findViewById(R.id.username);
-        EditText pwd = (EditText) findViewById(R.id.password);
-        String username = usr.getText().toString();
-        String password = pwd.getText().toString();
+    public void make_announcement_Click(View v)
+    {
+        RadioGroup radGroup = (RadioGroup) findViewById(R.id.who);
+        int radID = radGroup.getCheckedRadioButtonId();
+        String target_group = ((RadioButton) findViewById(radID)).getText().toString();
 
+        EditText post_body_text = (EditText) findViewById(R.id.alert_details);
+        String post_body = post_body_text.toString();
 
-        Log.v("network", "entering network thread");
-        (new verifyLogin()).execute(username, password);
+        if(target_group.equals("Alert Everyone"))
+        {
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+        else if(target_group.equals("Alert Humans"))
+        {
 
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("username", username);
-        editor.commit();
+        }
+        else if(target_group.equals("Alert Zombies"))
+        {
+
+        }
 
     }
 
