@@ -97,7 +97,7 @@ public class Z_missions extends AppCompatActivity {
                 text.append(strings.get(i));
                 text.append('\n');
             }
-            boolean found = false;
+            //boolean found = false;
 
             //set the textviews text to those read from the rules
             //TextView output = (TextView) findViewById(R.id.missionBody);

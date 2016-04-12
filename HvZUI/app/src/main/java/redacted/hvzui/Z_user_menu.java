@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class Z_user_menu extends AppCompatActivity {
 
@@ -86,6 +95,83 @@ public class Z_user_menu extends AppCompatActivity {
         t.start();
 
 
+    }
+
+    public class starveTimer extends AsyncTask<Void, Integer, Integer> {
+        @Override
+        protected Integer doInBackground(Void... params) {
+
+            //ArrayList<String> retval = new ArrayList<String>();
+            Integer time = 0;
+
+            Log.v("Connecting", "starting connection");
+            //connecion code
+            try {
+                //Connection Parameters
+                URL url;
+                url = new URL("http://www.hvz-go.com/getStarveTime.php");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestMethod("POST");
+
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    Log.v("Connect", "recived response");
+                    conn.connect();
+                    Log.v("Connected", "suceeded");
+
+                    BufferedReader input = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    Log.v("reading", "starting read");
+
+                    /*while ((line = input.readLine()) != null) {
+                        Log.v("reading", "");
+                        retval.add(line);
+                        Log.v("read", line);
+                    }*/
+
+                   time = input.read();
+
+                    input.close();
+                    Log.v("read", "read finish");
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return time;
+        }
+        @Override
+        protected void onPostExecute(Integer time) {
+            super.onPostExecute(time);
+
+            //creates an instance of the global preferences
+            String PREF_FILE_NAME = "PrefFile";
+            final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+            final SharedPreferences.Editor edit = preferences.edit();
+
+            edit.putInt("StarveTime", time);
+            edit.commit();
+
+            if (time < 86400)
+            {
+                edit.putBoolean("StarveAlert", true);
+                edit.commit();
+            }
+            else{
+                edit.putBoolean("StarveAlert", false);
+                edit.commit();
+            }
+
+            Log.v("Done", "Finished check starve");
+            //output.setText(text);
+
+
+        }
     }
 
     public void Z_report_Click(View v)

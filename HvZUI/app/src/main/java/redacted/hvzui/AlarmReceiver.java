@@ -15,15 +15,14 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context arg0, Intent arg1) {
 
-        Z_missions missions = new Z_missions();
         // For our recurring task, we'll just display a message
         Toast.makeText(arg0, "I'm running", Toast.LENGTH_SHORT).show();
         Log.v("AlarmReciever", "Recieved alarm");
 
         //have to create local instance of activity
-        Missions mission = new Missions();
+        Z_missions mission = new Z_missions();
 
-        mission.new getMission().execute();
+        //mission.new getMission().execute();
 
 
 
