@@ -58,9 +58,9 @@ public class Z_user_menu extends AppCompatActivity {
 
         //create thread to update every second
 
-        Thread t = new Thread() {
+        final Thread t = new Thread() {
 
-            int stuntimer = 100;
+            int stuntimer = 5;
             @Override
             //function to run every thread tick
             public void run() {
@@ -68,6 +68,10 @@ public class Z_user_menu extends AppCompatActivity {
                     while (!isInterrupted()) {
                         //can change this to change the thread inverval
                         Thread.sleep(1000);
+                        if(stuntimer == 0)
+                        {
+                            return;
+                        }
                         runOnUiThread(new Runnable() {
                             @Override
                             //actual statement to do an action every tick
@@ -75,19 +79,11 @@ public class Z_user_menu extends AppCompatActivity {
                                 TextView txt = (TextView)findViewById(R.id.TimerBox);
                                 txt.setText(""+stuntimer+" seconds");
                                 --stuntimer;
+
                             }
                         });
                     }
-                    if(stuntimer == 0)
-                    {
-                        //crete an aliert when the stun timer runs out
-                        AlertDialog.Builder builder = new AlertDialog.Builder(Z_user_menu.this);
-                        builder.setTitle("Stun timer ended")
-                                .setMessage("Your stun timer has expired, get hunting")
-                                .setNeutralButton("OK", null);
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();
-                    }
+
                 } catch (InterruptedException e) {
                 }
             }

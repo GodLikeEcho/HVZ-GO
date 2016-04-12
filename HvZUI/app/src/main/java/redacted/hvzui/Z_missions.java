@@ -85,7 +85,8 @@ public class Z_missions extends AppCompatActivity {
 
             //creates an instance of the global preferences
             String PREF_FILE_NAME = "PrefFile";
-            final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+            final SharedPreferences preferences;
+            preferences = Z_missions.this.getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
             final SharedPreferences.Editor edit = preferences.edit();
 
             //read the rules text file and display it
