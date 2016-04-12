@@ -3,7 +3,6 @@ package redacted.hvzui;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,8 +20,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         //have to create local instance of activity
         Z_missions mission = new Z_missions();
-
+        Z_user_menu starve = new Z_user_menu();
         //mission.new getMission().execute();
+        //starve.new starveTimer().execute();
 
 
 

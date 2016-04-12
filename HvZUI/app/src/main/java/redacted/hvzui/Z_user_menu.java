@@ -41,6 +41,8 @@ public class Z_user_menu extends AppCompatActivity {
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         setColor();
         startAlarm();
+        (new starveTimer()).execute();
+
     }
 
     public void startAlarm() {
@@ -167,7 +169,10 @@ public class Z_user_menu extends AppCompatActivity {
                 edit.commit();
             }
 
-            Log.v("Done", "Finished check starve");
+            System.out.println(preferences.getBoolean("starveAlert", false));
+            System.out.println(preferences.getInt("StarveTime", 0));
+            System.out.println(preferences.getAll());
+            Log.v("Done", "Finished check starve!");
             //output.setText(text);
 
 
