@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Z_user_menu extends AppCompatActivity {
 
@@ -37,12 +41,26 @@ public class Z_user_menu extends AppCompatActivity {
         setContentView(R.layout.activity_z_user_menu);
 
         // Retrieve a PendingIntent that will perform a broadcast
-        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        //Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        //pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        //startAlarm();
         setColor();
-        startAlarm();
-        (new starveTimer()).execute();
+        contCheck();
 
+    }
+
+    TimerTask scanTask;
+    Timer t = new Timer();
+
+    public void contCheck(){
+        scanTask = new TimerTask() {
+            @Override
+            public void run() {
+                (new getMission()).execute();
+                (new starveTimer()).execute();
+            }
+        };
+        t.schedule(scanTask,1000, 600000);
     }
 
     public void startAlarm() {
@@ -169,6 +187,101 @@ public class Z_user_menu extends AppCompatActivity {
             System.out.println(preferences.getInt("StarveTime", 0));
             System.out.println(preferences.getAll());
             Log.v("Done", "Finished check starve!");
+            //output.setText(text);
+
+
+        }
+    }
+
+    public class getMission extends AsyncTask<Void, Integer, ArrayList<String>> {
+
+        @Override
+        protected ArrayList<String> doInBackground(Void... params) {
+
+            ArrayList<String> retval = new ArrayList<String>();
+
+            Log.v("Connecting", "starting connection");
+            //connecion code
+            try {
+                //Connection Parameters
+                URL url;
+                url = new URL("http://www.hvz-go.com/getZMission.php");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestMethod("POST");
+
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    Log.v("Connect", "recived response");
+                    conn.connect();
+                    Log.v("Connected", "suceeded");
+
+                    BufferedReader input = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    String line;
+                    Log.v("reading", "starting read");
+
+                    while ((line = input.readLine()) != null) {
+                        Log.v("reading","");
+                        retval.add(line);
+                        Log.v("read", line);
+                    }
+
+                    input.close();
+                    Log.v("read", "read finish");
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return retval;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<String> strings) {
+            super.onPostExecute(strings);
+
+            //creates an instance of the global preferences
+            String PREF_FILE_NAME = "PrefFile";
+            final SharedPreferences preferences;
+            preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+            final SharedPreferences.Editor edit = preferences.edit();
+
+            //read the rules text file and display it
+            StringBuilder text = new StringBuilder();
+
+            //String line;
+            //loop through the file and read the rules
+            for (int i = 0; i < strings.size(); i++) {
+                text.append(strings.get(i));
+                text.append('\n');
+            }
+            //boolean found = false;
+
+            //set the textviews text to those read from the rules
+            //TextView output = (TextView) findViewById(R.id.missionBody);
+
+            String old = preferences.getString("mission", " ");
+            if( old.equals(text.toString()))
+            {
+                //commit prefs on change
+                edit.putBoolean("missionUpdate", false);
+                edit.commit();
+                System.out.println(preferences.getAll());
+            }
+            else
+            {
+                //commit prefs on change
+                edit.putBoolean("missionUpdate", true);
+                edit.putString("mission", text.toString());
+                edit.commit();
+                System.out.println(preferences.getAll());
+            }
+
             //output.setText(text);
 
 
