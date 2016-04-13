@@ -1,6 +1,7 @@
 package redacted.hvzui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class sign_up extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        setColor();
     }
 
     private class AddPlayer extends AsyncTask<String, Integer, String>
@@ -178,6 +180,34 @@ public class sign_up extends AppCompatActivity {
         {
             (new AddPlayer()).execute(username, password, email);
             //package and send the data to server for verification and addtion to the database
+        }
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.username);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 =  this.findViewById(R.id.password);
+            box2.setBackgroundColor(0xffffffff);
+
+            View box3 =  this.findViewById(R.id.confirm_password);
+            box3.setBackgroundColor(0xffffffff);
+
+            View box4 =  this.findViewById(R.id.email);
+            box4.setBackgroundColor(0xffffffff);
+
+            View box5 =  this.findViewById(R.id.confirm_email);
+            box5.setBackgroundColor(0xffffffff);
+
+            View box6 =  this.findViewById(R.id.sign_up);
+            box6.setBackgroundColor(0xffffffff);
+
         }
     }
 }

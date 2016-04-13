@@ -2,6 +2,7 @@ package redacted.hvzui;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,7 @@ public class GM_ban_player extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gm_ban_player);
-
+        setColor();
         (new PopulateUserSpinner()).execute();
     }
 
@@ -249,6 +250,35 @@ public class GM_ban_player extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Time banned must be a positive number", Toast.LENGTH_LONG).show();
             //reset the form
             bannedTill.setText("");
+        }
+    }
+
+    public void setColor() {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if (preferences.getBoolean("ColorBlind", false)) {
+            View box1 = this.findViewById(R.id.textView);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 = this.findViewById(R.id.spinner_user_to_ban);
+            box2.setBackgroundColor(0xffffffff);
+
+            View box3 = this.findViewById(R.id.textView1);
+            box3.setBackgroundColor(0xffffffff);
+
+            View box4 = this.findViewById(R.id.spinner_banned_till);
+            box4.setBackgroundColor(0xffffffff);
+
+            View box5 = this.findViewById(R.id.textView2);
+            box5.setBackgroundColor(0xffffffff);
+
+            View box7 = this.findViewById(R.id.spinner_ban_reason);
+            box7.setBackgroundColor(0xffffffff);
+
+            View box8 = this.findViewById(R.id.GM_ban);
+            box8.setBackgroundColor(0xffffffff);
         }
     }
 }

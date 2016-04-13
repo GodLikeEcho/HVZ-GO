@@ -2,6 +2,7 @@ package redacted.hvzui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class Z_tag_report extends AppCompatActivity {
 
         report = (Button) findViewById(R.id.report_tag);
         report.setOnClickListener(check);
+        setColor();
 
     }
 
@@ -145,6 +147,25 @@ public class Z_tag_report extends AppCompatActivity {
             {
                 Toast.makeText(getBaseContext(), "User not tagged", Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.game_tags);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 =  this.findViewById(R.id.tag_field);
+            box2.setBackgroundColor(0xffffffff);
+
+            View box3 =  this.findViewById(R.id.report_tag);
+            box3.setBackgroundColor(0xffffffff);
+
         }
     }
 }

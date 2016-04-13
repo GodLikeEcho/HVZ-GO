@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -27,6 +28,7 @@ public class Z_missions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z_missions);
 
+        setColor();
         (new getMission()).execute();
 
     }
@@ -122,6 +124,22 @@ public class Z_missions extends AppCompatActivity {
 
             //output.setText(text);
 
+
+        }
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.missionBody);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 =  this.findViewById(R.id.textView4);
+            box2.setBackgroundColor(0xffffffff);
 
         }
     }

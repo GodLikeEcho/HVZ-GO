@@ -2,6 +2,7 @@ package redacted.hvzui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class Rules extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
 
+        setColor();
         (new getRules()).execute();
     }
 
@@ -121,6 +123,19 @@ public class Rules extends AppCompatActivity {
             }
         }
 
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.Hrules);
+            box1.setBackgroundColor(0xffffffff);
+
+        }
     }
 
 }

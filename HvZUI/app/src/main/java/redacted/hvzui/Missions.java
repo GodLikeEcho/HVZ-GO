@@ -3,6 +3,7 @@ package redacted.hvzui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class Missions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_missions);
 
-
+        setColor();
         (new getMission()).execute();
     }
 
@@ -115,6 +116,21 @@ public class Missions extends AppCompatActivity {
             output.setText(text);
             //Toutput.setText(endTime);
 
+        }
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.missionBody);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 =  this.findViewById(R.id.textView4);
+            box2.setBackgroundColor(0xffffffff);
         }
     }
 }

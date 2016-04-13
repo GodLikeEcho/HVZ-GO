@@ -1,5 +1,6 @@
 package redacted.hvzui;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -34,7 +35,7 @@ public class GM_view_reports extends AppCompatActivity {
         setContentView(R.layout.activity_gm_view_reports);
 
         String type = "Harassment";
-
+        setColor();
         (new GetReports()).execute(type);
     }
 
@@ -142,5 +143,19 @@ public class GM_view_reports extends AppCompatActivity {
         String typeOfReport = type.getSelectedItem().toString();
 
         (new GetReports()).execute(typeOfReport);
+    }
+
+    public void setColor() {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if (preferences.getBoolean("ColorBlind", false)) {
+            View box1 = this.findViewById(R.id.reportTypeSpinner);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 = this.findViewById(R.id.reportlist);
+            box2.setBackgroundColor(0xffffffff);
+        }
     }
 }

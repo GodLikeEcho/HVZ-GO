@@ -43,8 +43,7 @@
         android:layout_height="50dp"
         android:text="Post Mission"
         android:id="@+id/post_mission"
-        android:backgroundTint="#fb8a00"
-        android:background="#ffffff"
+        android:background="#fb8a00"
         android:layout_marginTop="400dp"
         android:layout_centerHorizontal="true"
         android:onClick="post_mission_click" />

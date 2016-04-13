@@ -1,5 +1,6 @@
 package redacted.hvzui;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
@@ -29,6 +30,7 @@ public class GM_make_alert extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gm_make_alert);
+        setColor();
     }
     protected class postAlert extends AsyncTask<String, Integer, String>{
 
@@ -152,6 +154,23 @@ public class GM_make_alert extends AppCompatActivity {
             (new postAlert()).execute("Zombie", post_body);
         }
 
+    }
+
+    public void setColor() {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if (preferences.getBoolean("ColorBlind", false)) {
+            View box1 = this.findViewById(R.id.post_mission);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 = this.findViewById(R.id.textView3);
+            box2.setBackgroundColor(0xffffffff);
+
+            View box3 = this.findViewById(R.id.alert_details);
+            box3.setBackgroundColor(0xffffffff);
+        }
     }
 
 }

@@ -1,8 +1,10 @@
 package redacted.hvzui;
 
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ public class Z_rules extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z_rules);
 
+        setColor();
         //read the rules text file and display it
         StringBuilder text = new StringBuilder();
 
@@ -45,5 +48,18 @@ public class Z_rules extends AppCompatActivity {
 
         output.setText(text);
 
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.Zrules);
+            box1.setBackgroundColor(0xffffffff);
+
+        }
     }
 }

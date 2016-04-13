@@ -27,6 +27,7 @@ public class Z_mod_report extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z_mod_report);
+        setColor();
     }
 
     private class makeReport extends AsyncTask<String, Integer, String> {
@@ -115,5 +116,24 @@ public class Z_mod_report extends AppCompatActivity {
         (new makeReport()).execute(reportMadeMy, reportDetails, reportReason);
 
         details.setText("");
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.spinner_ViolationType);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 =  this.findViewById(R.id.reportDetails);
+            box2.setBackgroundColor(0xffffffff);
+
+            View box3 =  this.findViewById(R.id.SendReport);
+            box3.setBackgroundColor(0xffffffff);
+
+        }
     }
 }

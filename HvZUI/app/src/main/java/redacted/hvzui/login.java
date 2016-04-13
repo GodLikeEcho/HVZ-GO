@@ -36,6 +36,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setColor();
     }
 
     // Async Task override function to run the networking in a new thread
@@ -187,6 +188,25 @@ public class login extends AppCompatActivity {
         editor.putString("username", username);
         editor.commit();
 
+    }
+
+    public void setColor()
+    {
+        //creates an instance of the global preferences
+        String PREF_FILE_NAME = "PrefFile";
+        final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        if(preferences.getBoolean("ColorBlind", false)) {
+            View box1 =  this.findViewById(R.id.username);
+            box1.setBackgroundColor(0xffffffff);
+
+            View box2 =  this.findViewById(R.id.password);
+            box2.setBackgroundColor(0xffffffff);
+
+            View box3 =  this.findViewById(R.id.Login);
+            box3.setBackgroundColor(0xffffffff);
+
+        }
     }
 
 }
