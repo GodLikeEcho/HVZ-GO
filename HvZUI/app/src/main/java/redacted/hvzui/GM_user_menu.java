@@ -64,7 +64,7 @@ public class GM_user_menu extends AppCompatActivity {
             View box4 = this.findViewById(R.id.ban_players);
             box4.setBackgroundColor(0xffffffff);
 
-            View box5 = this.findViewById(R.id.post_mission);
+            View box5 = this.findViewById(R.id.post_alert);
             box5.setBackgroundColor(0xffffffff);
 
             View box7 = this.findViewById(R.id.post_alert);

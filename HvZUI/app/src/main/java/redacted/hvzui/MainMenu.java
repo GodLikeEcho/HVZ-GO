@@ -24,6 +24,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -47,8 +49,22 @@ public class MainMenu extends AppCompatActivity {
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
         setColor();
+        contCheck();
+
     }
 
+    TimerTask scanTask;
+    Timer t = new Timer();
+
+    public void contCheck(){
+        scanTask = new TimerTask() {
+            @Override
+            public void run() {
+                (new getAlert()).execute();
+            }
+        };
+        t.schedule(scanTask, 1000, 600000);
+    }
     public void goToLoginScreen(View v) {
         Intent intnt = new Intent(this, login.class);
         startActivity(intnt);
@@ -89,7 +105,7 @@ public class MainMenu extends AppCompatActivity {
         }
     }
 
-    private class getRules extends AsyncTask<Void, Integer, ArrayList<String> > {
+    private class getAlert extends AsyncTask<Void, Integer, ArrayList<String> > {
         @Override
         // The function to override
         protected ArrayList<String> doInBackground(Void... params) {
@@ -99,7 +115,7 @@ public class MainMenu extends AppCompatActivity {
             try {
                 //Connection Parameters
                 URL url;
-                url = new URL("http://www.hvz-go.com/getRules.php");
+                url = new URL("http://www.hvz-go.com/getAlert.php");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setDoOutput(true);
                 conn.setDoInput(true);
@@ -196,6 +212,13 @@ public class MainMenu extends AppCompatActivity {
                 AlertDialog alertDialog = builder.create();
                 //and show it
                 alertDialog.show();
+
+                prefs = PreferenceManager.getDefaultSharedPreferences(MainMenu.this);
+
+                SharedPreferences.Editor editor = prefs.edit();
+
+                editor.putString("LastMessage", strings.get(1));
+                editor.commit();
 
             }
         }

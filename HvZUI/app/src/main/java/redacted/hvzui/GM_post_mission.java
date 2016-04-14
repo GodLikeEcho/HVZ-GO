@@ -42,7 +42,7 @@ public class GM_post_mission extends AppCompatActivity {
             View box2 = this.findViewById(R.id.mission_time);
             box2.setBackgroundColor(0xffffffff);
 
-            View box3 = this.findViewById(R.id.post_mission);
+            View box3 = this.findViewById(R.id.post_alert);
             box3.setBackgroundColor(0xffffffff);
 
             View box4 = this.findViewById(R.id.textView3);

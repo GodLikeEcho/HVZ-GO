@@ -3,7 +3,6 @@ package redacted.hvzui;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -22,7 +20,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class GM_make_alert extends AppCompatActivity {
 
@@ -162,7 +159,7 @@ public class GM_make_alert extends AppCompatActivity {
         final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
 
         if (preferences.getBoolean("ColorBlind", false)) {
-            View box1 = this.findViewById(R.id.post_mission);
+            View box1 = this.findViewById(R.id.post_alert);
             box1.setBackgroundColor(0xffffffff);
 
             View box2 = this.findViewById(R.id.textView3);
