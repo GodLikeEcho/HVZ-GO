@@ -159,7 +159,7 @@ public class GM_make_alert extends AppCompatActivity {
         final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
 
         if (preferences.getBoolean("ColorBlind", false)) {
-            View box1 = this.findViewById(R.id.post_alert);
+            View box1 = this.findViewById(R.id.post_mission);
             box1.setBackgroundColor(0xffffffff);
 
             View box2 = this.findViewById(R.id.textView3);

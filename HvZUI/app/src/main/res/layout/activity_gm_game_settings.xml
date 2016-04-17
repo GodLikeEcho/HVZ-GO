@@ -23,9 +23,21 @@
         android:text="Update Game Settings"
         android:id="@+id/update_settings"
         android:background="#fb8a00"
-        android:layout_marginTop="410dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="update_settings_click" />
+        android:onClick="update_settings_click"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Pause game"
+        android:id="@+id/pause_game"
+        android:background="#fb8a00"
+        android:onClick="pause_game_click"
+        android:layout_below="@+id/update_settings"
+        android:layout_alignLeft="@+id/update_settings"
+        android:layout_alignStart="@+id/update_settings"
+        android:layout_marginTop="44dp" />
 
     <TextView
     android:layout_width="190dp"
