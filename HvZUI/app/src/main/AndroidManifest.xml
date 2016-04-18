@@ -83,6 +83,10 @@
 
         <activity android:name=".GM_make_alert" >
         </activity>
+        <activity
+            android:name=".GM_chat_room"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
     </application>
 
 </manifest>

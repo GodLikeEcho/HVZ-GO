@@ -46,6 +46,12 @@ public class GM_user_menu extends AppCompatActivity {
         startActivity(intnt);
     }
 
+    public void GM_chat_Click(View v)
+    {
+        Intent intnt = new Intent(this, GM_chat_room.class);
+        startActivity(intnt);
+    }
+
     public void setColor() {
         //creates an instance of the global preferences
         String PREF_FILE_NAME = "PrefFile";

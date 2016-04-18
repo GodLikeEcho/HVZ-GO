@@ -83,7 +83,8 @@
         android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/post_mission"
-        android:layout_alignStart="@+id/post_mission" />
+        android:layout_alignStart="@+id/post_mission"
+        android:onClick="GM_chat_Click" />
 
     <TextView
         android:layout_width="wrap_content"
