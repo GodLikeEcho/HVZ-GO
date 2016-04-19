@@ -17,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,6 +72,7 @@ public class Z_user_menu extends AppCompatActivity {
             public void run() {
                 (new getMission()).execute();
                 (new starveTimer()).execute();
+                (new isPaused()).execute();
                 (new getAlert()).execute();
             }
         };
@@ -85,13 +88,117 @@ public class Z_user_menu extends AppCompatActivity {
         Log.v("startAlarm", "In alarm starter");
     }
 
+    private class isPaused extends AsyncTask<String, Integer, String>
+    {
+        @Override
+        protected String doInBackground(String... params) {
+            // For returning
+            String returnString = "";
+
+            try {
+                //Connection Parameters
+                URL url;
+                url = new URL( "http://www.hvz-go.com/isPaused.php" );
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestProperty("Connection", "Keep-Alive");
+                conn.setRequestMethod("POST");
+
+                // Prepare the parameters to be passed
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("GameID", params[0]);
+
+                String query = builder.build().getEncodedQuery();
+
+                // Log for debugging
+                Log.v("prep", "Preparing to connect");
+
+                // More logging
+                Log.v("connected", "successful connection, preparing to write");
+
+                OutputStream os = conn.getOutputStream();
+                OutputStreamWriter wr = new OutputStreamWriter(os, "UTF-8");
+
+                // Write the params and clean up
+                wr.write(query);
+                wr.flush();
+                wr.close();
+                os.close();
+
+                conn.connect();
+
+                Log.v("write", "Write finished");
+
+                // Get a response from the server
+                int responseCode = conn.getResponseCode();
+
+                // If the response is the one we are looking for
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+
+
+                    Log.v("read", "Beginning read");
+
+                    // Create a buffered reader object to get the data from the php call
+                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    // Line to read into
+                    String line = "";
+
+                    // As long as there is stuff to read, append each line to the returnstring variable
+                    while ((line = in.readLine()) != null) {
+                        Log.v("read", line);
+                        returnString += line;
+                    }
+
+                    //close our reader
+                    in.close();
+
+                    Log.v("read", "Read complete");
+                }
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Log.v("returning", "here");
+            return returnString;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            TextView topBar = (TextView) findViewById(R.id.TimerBox);
+            Button stunTimer = (Button) findViewById(R.id.StunTimer);
+            Button reportTag = (Button) findViewById(R.id.reportTag);
+            Button missions = (Button) findViewById(R.id.Mission);
+
+            if(s.equals("1"))
+            {
+                topBar.setEnabled(false);
+                stunTimer.setEnabled(false);
+                reportTag.setEnabled(false);
+                missions.setEnabled(false);
+            }
+            else if(s.equals("0"))
+            {
+                topBar.setEnabled(true);
+                stunTimer.setEnabled(true);
+                reportTag.setEnabled(true);
+                missions.setEnabled(true);
+            }
+        }
+    }
     public void beginTimer(View v){
 
         //create thread to update every second
 
         final Thread t = new Thread() {
 
-            int stuntimer = 5;
+            int stuntimer = 15;
             @Override
             //function to run every thread tick
             public void run() {

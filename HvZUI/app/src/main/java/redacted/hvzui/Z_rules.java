@@ -105,7 +105,7 @@ public class Z_rules extends AppCompatActivity {
             super.onPostExecute(strings);
 
             if (!strings.isEmpty()) {
-
+                    TextView rulesbox = (TextView) findViewById(R.id.Hrules);
 
                 for (int i = 0; i < strings.size(); i++) {
                     rulesbox.append(strings.get(i));
@@ -126,6 +126,7 @@ public class Z_rules extends AppCompatActivity {
         final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
 
         if (preferences.getBoolean("ColorBlind", false)) {
+            View box1 = this.findViewById(R.id.Hrules);
             box1.setBackgroundColor(0xffffffff);
 
         }
