@@ -38,7 +38,7 @@
         android:id="@+id/textView4"
         android:background="#910a0a"
         android:autoText="true"
-        android:text=" 0:45 Hours Left"
+        android:text=""
         android:textAlignment="center"
         android:textColor="#000000"
         android:singleLine="false"

@@ -87,6 +87,8 @@ public class Missions extends AppCompatActivity {
         protected void onPostExecute(ArrayList<String> strings) {
             super.onPostExecute(strings);
 
+
+
             //read the rules text file and display it
             StringBuilder text = new StringBuilder();
             int endTime = 0;
