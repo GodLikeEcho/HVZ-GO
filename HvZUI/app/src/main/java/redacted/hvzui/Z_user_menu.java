@@ -1,28 +1,17 @@
 package redacted.hvzui;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,9 +26,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Z_user_menu extends AppCompatActivity {
-
-    private PendingIntent pendingIntent;
-    private AlarmManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,133 +58,118 @@ public class Z_user_menu extends AppCompatActivity {
             public void run() {
                 (new getMission()).execute();
                 (new starveTimer()).execute();
-                (new isPaused()).execute();
+                SetStarve();
                 (new getAlert()).execute();
             }
         };
         t.schedule(scanTask, 1000, 600000);
     }
 
-    public void startAlarm() {
-        manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 4000;
-
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
-        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
-        Log.v("startAlarm", "In alarm starter");
-    }
-
-    private class isPaused extends AsyncTask<String, Integer, String>
-    {
-        @Override
-        protected String doInBackground(String... params) {
-            // For returning
-            String returnString = "";
-
-            try {
-                //Connection Parameters
-                URL url;
-                url = new URL( "http://www.hvz-go.com/isPaused.php" );
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                conn.setDoOutput(true);
-                conn.setDoInput(true);
-                conn.setRequestProperty("Connection", "Keep-Alive");
-                conn.setRequestMethod("POST");
-
-                // Prepare the parameters to be passed
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("GameID", params[0]);
-
-                String query = builder.build().getEncodedQuery();
-
-                // Log for debugging
-                Log.v("prep", "Preparing to connect");
-
-                // More logging
-                Log.v("connected", "successful connection, preparing to write");
-
-                OutputStream os = conn.getOutputStream();
-                OutputStreamWriter wr = new OutputStreamWriter(os, "UTF-8");
-
-                // Write the params and clean up
-                wr.write(query);
-                wr.flush();
-                wr.close();
-                os.close();
-
-                conn.connect();
-
-                Log.v("write", "Write finished");
-
-                // Get a response from the server
-                int responseCode = conn.getResponseCode();
-
-                // If the response is the one we are looking for
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-
-
-                    Log.v("read", "Beginning read");
-
-                    // Create a buffered reader object to get the data from the php call
-                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                    // Line to read into
-                    String line = "";
-
-                    // As long as there is stuff to read, append each line to the returnstring variable
-                    while ((line = in.readLine()) != null) {
-                        Log.v("read", line);
-                        returnString += line;
-                    }
-
-                    //close our reader
-                    in.close();
-
-                    Log.v("read", "Read complete");
-                }
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Log.v("returning", "here");
-            return returnString;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-            TextView topBar = (TextView) findViewById(R.id.TimerBox);
-            Button stunTimer = (Button) findViewById(R.id.StunTimer);
-            Button reportTag = (Button) findViewById(R.id.reportTag);
-            Button missions = (Button) findViewById(R.id.Mission);
-
-            if(s.equals("1"))
-            {
-                topBar.setEnabled(false);
-                stunTimer.setEnabled(false);
-                reportTag.setEnabled(false);
-                missions.setEnabled(false);
-            }
-            else if(s.equals("0"))
-            {
-                topBar.setEnabled(true);
-                stunTimer.setEnabled(true);
-                reportTag.setEnabled(true);
-                missions.setEnabled(true);
-            }
-        }
-    }
-    public void beginTimer(View v){
+    public void SetStarve(){
 
         //create thread to update every second
 
-        final Thread t = new Thread() {
+        final Thread x = new Thread() {
+            // creates an instance of the global preferences
+            String PREF_FILE_NAME = "PrefFile";
+            final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
 
-            int stuntimer = 15;
+            int starvetime = preferences.getInt("StarveTime", 0);
+
+            @Override
+            //function to run every thread tick
+
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        //can change this to change the thread inverval
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+
+                            //actual statement to do an action every tick
+                            int days = 0, hours = 0, mins = 0, seconds = 0, rem = 0;
+                            public void run() {
+                                TextView txt = (TextView)findViewById(R.id.StarveBox);
+                                if(starvetime >= 86400)
+                                {
+                                    days = starvetime / 86400;
+                                    rem = starvetime % 86400;
+                                    if(rem >= 3600)
+                                    {
+                                        hours = rem / 3600;
+                                        rem = rem % 3600;
+                                        if(rem >= 60)
+                                        {
+                                            mins = rem / 60;
+                                            rem = rem % 60;
+                                            seconds = rem;
+                                        }
+                                    }
+                                    else if(starvetime >= 60)
+                                    {
+                                        mins = rem / 60;
+                                        rem = rem % 60;
+                                        seconds = rem;
+                                    }
+                                }
+                                else if(starvetime >= 3600)
+                                {
+                                    days = 0;
+                                    hours = starvetime / 3600;
+                                    rem = starvetime % 3600;
+                                    if(rem >= 60)
+                                    {
+                                        mins = rem / 60;
+                                        rem = rem % 60;
+                                        seconds = rem;
+                                    }
+                                }
+
+                                else if(starvetime >= 60)
+                                {
+                                    days = 0;
+                                    hours = 0;
+                                    mins = starvetime / 60;
+                                    rem = starvetime % 60;
+                                   seconds = rem;
+                                }
+                                else
+                                {
+                                    days = 0;
+                                    hours = 0;
+                                    mins = 0;
+                                    seconds = starvetime;
+                                }
+
+                                txt.setText("Starve in "+days+':'+hours+':'+mins+':'+seconds);
+                                if(starvetime <= 0)
+                                {
+                                    txt.setText("You have starved.");
+                                    return;
+                                }
+                                --starvetime;
+
+                            }
+                        });
+                    }
+
+                } catch (InterruptedException e) {
+                }
+            }
+
+        };
+
+        x.start();
+    }
+
+    public void beginTimer(View v) {
+
+        //create thread to update every second
+
+        final Thread j = new Thread() {
+
+            int stuntimer = 5;
+
             @Override
             //function to run every thread tick
             public void run() {
@@ -206,16 +177,17 @@ public class Z_user_menu extends AppCompatActivity {
                     while (!isInterrupted()) {
                         //can change this to change the thread inverval
                         Thread.sleep(1000);
-                        if(stuntimer == 0)
-                        {
-                            return;
-                        }
                         runOnUiThread(new Runnable() {
-                            @Override
+
                             //actual statement to do an action every tick
                             public void run() {
                                 TextView txt = (TextView)findViewById(R.id.TimerBox);
-                                txt.setText(""+stuntimer+" seconds");
+                                txt.setText("Stunned for "+stuntimer+" seconds");
+                                if(stuntimer <= 0)
+                                {
+                                    txt.setText("");
+                                    return;
+                                }
                                 --stuntimer;
 
                             }
@@ -228,10 +200,9 @@ public class Z_user_menu extends AppCompatActivity {
 
         };
 
-        t.start();
-
-
+        j.start();
     }
+
 
     public class starveTimer extends AsyncTask<Void, Integer, Integer> {
         @Override
@@ -239,6 +210,7 @@ public class Z_user_menu extends AppCompatActivity {
 
             //ArrayList<String> retval = new ArrayList<String>();
             Integer time = 0;
+            String times = null;
 
             Log.v("Connecting", "starting connection");
             //connecion code
@@ -262,13 +234,16 @@ public class Z_user_menu extends AppCompatActivity {
 
                     Log.v("reading", "starting read");
 
+                    times = input.readLine();
+                    time = Integer.parseInt(times);
                     /*while ((line = input.readLine()) != null) {
                         Log.v("reading", "");
                         retval.add(line);
                         Log.v("read", line);
                     }*/
 
-                   time = input.read();
+                   //time = input.read();
+                    Log.v("Connected. read time is", times);
 
                     input.close();
                     Log.v("read", "read finish");
@@ -380,10 +355,6 @@ public class Z_user_menu extends AppCompatActivity {
                 text.append(strings.get(i));
                 text.append('\n');
             }
-            //boolean found = false;
-
-            //set the textviews text to those read from the rules
-            //TextView output = (TextView) findViewById(R.id.missionBody);
 
             String old = preferences.getString("mission", " ");
             if( old.equals(text.toString()))
@@ -399,12 +370,9 @@ public class Z_user_menu extends AppCompatActivity {
                 edit.putBoolean("missionUpdate", true);
                 edit.putString("mission", text.toString());
                 edit.commit();
+                Toast.makeText(getApplicationContext(), "There in a new Mission.", Toast.LENGTH_SHORT).show();
                 System.out.println(preferences.getAll());
             }
-
-            //output.setText(text);
-
-
         }
     }
 
@@ -483,6 +451,9 @@ public class Z_user_menu extends AppCompatActivity {
 
             View box9 =  this.findViewById(R.id.Moderate);
             box9.setBackgroundColor(0xffffffff);
+
+            View box10 =  this.findViewById(R.id.StarveBox);
+            box10.setBackgroundColor(0xffffffff);
         }
     }
 
