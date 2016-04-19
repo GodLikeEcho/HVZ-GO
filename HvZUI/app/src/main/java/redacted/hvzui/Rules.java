@@ -1,25 +1,14 @@
 package redacted.hvzui;
-
-import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -38,7 +27,7 @@ public class Rules extends AppCompatActivity {
     }
 
     // Async Task override function to run the networking in a new thread
-    private class getRules extends AsyncTask<Void, Integer, ArrayList<String> > {
+    private class getRules extends AsyncTask<Void, Integer, ArrayList<String>> {
         @Override
         // The function to override
         protected ArrayList<String> doInBackground(Void... params) {
@@ -108,11 +97,10 @@ public class Rules extends AppCompatActivity {
             super.onPostExecute(strings);
 
             if (!strings.isEmpty()) {
-                TextView rulesbox = (TextView)findViewById(R.id.Hrules);
+                TextView rulesbox = (TextView) findViewById(R.id.Hrules);
 
 
-                for(int i = 0; i < strings.size(); i++)
-                {
+                for (int i = 0; i < strings.size(); i++) {
                     rulesbox.append(strings.get(i));
                     rulesbox.append("\n");
                 }
@@ -125,17 +113,15 @@ public class Rules extends AppCompatActivity {
 
     }
 
-    public void setColor()
-    {
+    public void setColor() {
         //creates an instance of the global preferences
         String PREF_FILE_NAME = "PrefFile";
         final SharedPreferences preferences = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
 
-        if(preferences.getBoolean("ColorBlind", false)) {
-            View box1 =  this.findViewById(R.id.Hrules);
+        if (preferences.getBoolean("ColorBlind", false)) {
+            View box1 = this.findViewById(R.id.Hrules);
             box1.setBackgroundColor(0xffffffff);
 
         }
     }
-
 }

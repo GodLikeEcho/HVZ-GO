@@ -79,6 +79,9 @@ public class GM_user_menu extends AppCompatActivity {
             View box8 = this.findViewById(R.id.chat);
             box8.setBackgroundColor(0xffffffff);
 
+            View box9 = this.findViewById(R.id.post_alert);
+            box9.setBackgroundColor(0xffffffff);
+
         }
     }
 }
