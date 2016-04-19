@@ -59,7 +59,7 @@ public class Z_user_menu extends AppCompatActivity {
                 (new getMission()).execute();
                 (new starveTimer()).execute();
                 SetStarve();
-                (new getAlert()).execute();
+                //(new getAlert()).execute();
             }
         };
         t.schedule(scanTask, 1000, 600000);

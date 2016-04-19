@@ -137,7 +137,7 @@ public class GM_view_reports extends AppCompatActivity {
         }
     }
 
-    private void SelectReportTypeClick(View v)
+    public void SelectReportTypeClick(View v)
     {
         Spinner type = (Spinner) findViewById(R.id.reportTypeSpinner);
         String typeOfReport = type.getSelectedItem().toString();

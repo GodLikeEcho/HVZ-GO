@@ -44,5 +44,6 @@
         android:id="@+id/getReports"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/reportTypeSpinner"
-        android:layout_toEndOf="@+id/reportTypeSpinner" />
+        android:layout_toEndOf="@+id/reportTypeSpinner"
+        android:onClick="SelectReportTypeClick" />
 </RelativeLayout>
