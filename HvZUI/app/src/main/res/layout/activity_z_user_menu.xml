@@ -66,7 +66,7 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/TimerBox"
@@ -76,6 +76,19 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+
+        android:autoText="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/StarveBox"
+        android:background="#910a0a"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TimerBox"
 
         android:autoText="true" />
 
@@ -100,7 +113,7 @@
         android:background="#910a0a"
         android:onClick="beginTimer"
         android:gravity="center|center_vertical|center_horizontal"
-        android:layout_below="@+id/TimerBox"
+        android:layout_below="@+id/StarveBox"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp" />
 
