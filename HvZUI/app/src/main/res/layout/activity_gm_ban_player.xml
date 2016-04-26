@@ -33,7 +33,7 @@
         android:id="@+id/spinner_user_to_ban"
         android:layout_centerHorizontal="true"
         android:spinnerMode="dropdown"
-        android:layout_above="@+id/editText"
+
         android:layout_marginTop="50dp"
         android:background="#f3990a" />
 

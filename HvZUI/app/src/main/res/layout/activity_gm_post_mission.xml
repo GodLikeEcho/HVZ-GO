@@ -49,13 +49,13 @@
         android:onClick="post_mission_click" />
 
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="80dp"
         android:text=""
         android:background="#fc9f59"
         android:id="@+id/textView3"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="110dp"
         android:layout_gravity="center"/>
 
     <EditText
@@ -64,15 +64,16 @@
         android:background="#fc9f59"
         android:id="@+id/mission_details"
         android:layout_marginTop="170dp"
-        android:layout_marginLeft="54dp"
+        android:layout_marginLeft="70dp"
+        android:gravity="top"
          />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignLeft="@+id/label2"
+        android:layout_alignStart="@+id/label2">
 
         <RadioButton
             android:layout_width="wrap_content"

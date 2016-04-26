@@ -18,6 +18,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:id="@+id/spinner_game_to_join"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="49dp"
+        android:background="#f3990a"
+        android:layout_below="@+id/TimerBox"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -25,11 +35,10 @@
         android:id="@+id/button2"
 
         android:background="#fb8a00"
-        android:layout_marginTop="167dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:onClick="H_chat_Click" />
+        android:layout_marginTop="0dp"
+        android:onClick="H_chat_Click"
+        android:layout_below="@+id/spinner_game_to_join"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="200dp"
@@ -37,10 +46,9 @@
         android:text="Mission"
         android:id="@+id/button3"
         android:background="#fb8a00"
-        android:layout_marginTop="10dp"
+        android:onClick="missions_Click"
         android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:onClick="missions_Click" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="200dp"
@@ -48,10 +56,9 @@
         android:text="Rules"
         android:id="@+id/Rules"
         android:background="#fb8a00"
-        android:layout_marginTop="10dp"
+        android:onClick="rules_Click"
         android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true"
-        android:onClick="rules_Click" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -82,21 +89,19 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="All Chat"
-        android:layout_below="@+id/Rules"
         android:background="#fb8a00"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
         android:id="@+id/button"
-        android:onClick="A_chat_Click" />
+        android:onClick="A_chat_Click"
+        android:layout_below="@+id/Rules"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="Settings"
-        android:layout_below="@+id/button"
         android:background="#fb8a00"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
         android:id="@+id/settings"
-        android:onClick="h_settings_Click" />
+        android:onClick="h_settings_Click"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

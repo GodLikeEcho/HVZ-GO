@@ -15,6 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,6 +37,7 @@ public class UserMenu extends AppCompatActivity {
     private PendingIntent pendingIntent;
     private AlarmManager manager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +52,31 @@ public class UserMenu extends AppCompatActivity {
         editor.putString("LastMessage", "");
         editor.commit();
 
+        final Spinner game_spinner = (Spinner) findViewById(R.id.spinner_game_to_join);
+
+        //set up the listner for when the user selects which game they are in
+        game_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(UserMenu.this);
+
+                SharedPreferences.Editor editor = prefs.edit();
+
+                editor.putString("GameID", game_spinner.getSelectedItem().toString());
+                editor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         // Retrieve a PendingIntent that will perform a broadcast
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+
+        (new PopulateGameSpinner()).execute();
 
         setColor();
     }
@@ -65,6 +92,97 @@ public class UserMenu extends AppCompatActivity {
             }
         };
         t.schedule(scanTask, 1000, 600000);
+    }
+
+    //listner for when the user changes the item selection in the game spinner
+
+    // Async Task override function to run the networking in a new thread
+    private class PopulateGameSpinner extends AsyncTask<Void, Integer, ArrayList<String> >
+    {
+        @Override
+        // The function to override
+        protected ArrayList<String> doInBackground(Void... params)
+        {
+            // For returning
+            ArrayList<String> res = new ArrayList<String>();
+
+            try {
+                //Connection Parameters
+                URL url;
+                url = new URL( "http://www.hvz-go.com/getGames.php" );
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestMethod("POST");
+
+                boolean first = true;
+
+                // Log for debugging
+                Log.v("prep", "Preparing to connect");
+
+                String returnString = "";
+
+                // Get a response from the server
+                int responseCode = conn.getResponseCode();
+
+                // If the response is the one we are looking for
+                if (responseCode == HttpURLConnection.HTTP_OK)
+                {
+                    // More logging
+                    Log.v("connected", "successful connection, preparing to read");
+
+
+                    conn.connect();
+
+                    Log.v("read", "Beginning read");
+
+                    // Create a buffered reader object to get the data from the php call
+                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    // Line to read into
+                    String line = "";
+
+                    // As long as there is stuff to read, add each line to the array
+                    while((line = in.readLine()) != null)
+                    {
+                        Log.v("read", line);
+                        res.add(line);
+                    }
+
+                    //close our reader
+                    in.close();
+
+
+                    Log.v("read", "Read complete");
+
+                }
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return res;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<String> strings) {
+            super.onPostExecute(strings);
+            //if thre are user names returned, fill the spinner
+            if(!strings.isEmpty())
+            {
+                Spinner spinner = (Spinner) findViewById(R.id.spinner_game_to_join);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserMenu.this, android.R.layout.simple_spinner_item, strings);
+
+                spinner.setAdapter(adapter);
+            }
+            else
+            {
+                // If it is invalid, notify the user of this
+                Toast.makeText(getBaseContext(), "Could not retrieve game list", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     public void report_Click(View v)

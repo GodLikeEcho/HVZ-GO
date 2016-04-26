@@ -42,7 +42,8 @@
         android:background="#fc9f59"
         android:id="@+id/alert_details"
         android:layout_marginTop="170dp"
-        android:layout_marginLeft="54dp"
+        android:layout_marginLeft="70dp"
+        android:gravity="top"
         />
 
     <RadioGroup
