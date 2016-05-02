@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,8 +32,13 @@ public class Missions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_missions);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String gettingMissions = prefs.getString("getMissions", "");
+
         setColor();
-        (new getMission()).execute();
+        if(gettingMissions.equals("0")) {
+            (new getMission()).execute();
+        }
     }
 
     protected class getMission extends AsyncTask<Void, Integer, ArrayList<String>> {

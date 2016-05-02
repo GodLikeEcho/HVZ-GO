@@ -188,6 +188,9 @@ public class login extends AppCompatActivity {
         editor.putString("username", username);
         editor.commit();
 
+        usr.setText("");
+        pwd.setText("");
+
     }
 
     public void setColor()

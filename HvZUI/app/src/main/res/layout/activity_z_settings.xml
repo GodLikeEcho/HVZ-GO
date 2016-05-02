@@ -22,8 +22,40 @@
         android:layout_height="wrap_content"
         android:text="Color Blind"
         android:id="@+id/ColorB"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="58dp"
+        android:background="#910a0a"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_alignRight="@+id/log_out"
+        android:layout_alignEnd="@+id/log_out"
+        android:layout_alignLeft="@+id/log_out"
+        android:layout_alignStart="@+id/log_out" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto-check for Missions"
+        android:id="@+id/checkMissions"
+        android:background="#910a0a"
+        android:layout_below="@+id/ColorB"
+
+        android:layout_alignRight="@+id/log_out"
+        android:layout_alignBottom="@+id/ColorB" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Log out"
+        android:id="@+id/log_out"
+        android:background="#910a0a"
+        android:nestedScrollingEnabled="false"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:onClick="Z_logout_click"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/checkMissions"
+        android:layout_alignRight="@+id/checkMissions"
+        android:layout_alignEnd="@+id/checkMissions" />
 
 
 </RelativeLayout>
