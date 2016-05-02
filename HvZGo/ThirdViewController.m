@@ -9,6 +9,8 @@
 #import "ThirdViewController.h"
 
 @interface ThirdViewController ()
+- (IBAction)SwitchToAnnouncementView:(UIButton *)sender;
+- (IBAction)SwitchToPostMissionView:(UIButton *)sender;
 
 @end
 
@@ -34,4 +36,15 @@
 }
 */
 
+- (IBAction)SwitchToAnnouncementView:(UIButton *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Announcement UI"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)SwitchToPostMissionView:(UIButton *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"PostMissionView"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 @end

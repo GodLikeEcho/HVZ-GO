@@ -24,6 +24,8 @@
 		71F278C31C9C0D1500FE20A0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F278C21C9C0D1500FE20A0 /* LoginViewController.m */; };
 		71F278C81C9C160800FE20A0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F278C71C9C160800FE20A0 /* SettingsViewController.m */; };
 		F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839531CD7E51500A84586 /* ThirdViewController.m */; };
+		F48839571CD8100300A84586 /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839561CD8100300A84586 /* AnnouncementViewController.m */; };
+		F488395A1CD81E3F00A84586 /* PostMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839591CD81E3F00A84586 /* PostMissionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		71F278C71C9C160800FE20A0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 		F48839521CD7E51500A84586 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		F48839531CD7E51500A84586 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		F48839551CD8100300A84586 /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementViewController.h; sourceTree = "<group>"; };
+		F48839561CD8100300A84586 /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementViewController.m; sourceTree = "<group>"; };
+		F48839581CD81E3F00A84586 /* PostMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMissionViewController.h; sourceTree = "<group>"; };
+		F48839591CD81E3F00A84586 /* PostMissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMissionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,10 @@
 				714074F11C7643EC00062332 /* SecondViewController.m */,
 				F48839521CD7E51500A84586 /* ThirdViewController.h */,
 				F48839531CD7E51500A84586 /* ThirdViewController.m */,
+				F48839551CD8100300A84586 /* AnnouncementViewController.h */,
+				F48839561CD8100300A84586 /* AnnouncementViewController.m */,
+				F48839581CD81E3F00A84586 /* PostMissionViewController.h */,
+				F48839591CD81E3F00A84586 /* PostMissionViewController.m */,
 				71F278C61C9C160800FE20A0 /* SettingsViewController.h */,
 				71F278C71C9C160800FE20A0 /* SettingsViewController.m */,
 				7105C3D41CB2C5360058D44B /* ChatViewController.h */,
@@ -321,7 +331,9 @@
 				714074EF1C7643EC00062332 /* FirstViewController.m in Sources */,
 				71F278C81C9C160800FE20A0 /* SettingsViewController.m in Sources */,
 				7105C3E51CC616F80058D44B /* networktranslation.swift in Sources */,
+				F48839571CD8100300A84586 /* AnnouncementViewController.m in Sources */,
 				F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */,
+				F488395A1CD81E3F00A84586 /* PostMissionViewController.m in Sources */,
 				7105C3DB1CBB12140058D44B /* KeychainItemWrapper.m in Sources */,
 				714074E91C7643EC00062332 /* main.m in Sources */,
 				7105C3E21CBB18D40058D44B /* ObjectStorage.m in Sources */,
