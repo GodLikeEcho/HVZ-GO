@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.ModReport"
+    android:onClick="hreport">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:src="@drawable/hbg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Report"
+        android:id="@+id/SendReport"
+        android:background="#fb8a00"
+        android:nestedScrollingEnabled="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:onClick="hreport" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:id="@+id/hDetails"
+        android:hint="Please type report here"
+        android:background="#f89d00"
+        android:autoText="true"
+        android:clickable="true"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="top"/>
+
+    <Spinner
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_HViolationType"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/report_reasons"
+        android:spinnerMode="dropdown"
+        android:layout_above="@+id/hDetails"
+        android:background="#f3990a" />
+
+</RelativeLayout>

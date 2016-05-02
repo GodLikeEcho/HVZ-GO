@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.Z_tag_report">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/bg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:id="@+id/game_tags"
+        android:background="#910a0a"
+        android:layout_marginTop="104dp"
+        android:text="XX Game Tags"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fdfcfc" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/tag_field"
+        android:hint="Enter Tag ID"
+        android:background="#ff8d79"
+        android:autoText="true"
+        android:clickable="true"
+        android:layout_below="@+id/game_tags"
+        android:layout_alignLeft="@+id/game_tags"
+        android:layout_alignStart="@+id/game_tags"
+        android:layout_marginTop="42dp" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Report a Tag"
+        android:id="@+id/report_tag"
+        android:background="#ff8d79"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/tag_field"
+        android:layout_alignLeft="@+id/tag_field"
+        android:layout_alignStart="@+id/tag_field"
+        android:onClick="reportTag" />
+
+</RelativeLayout>

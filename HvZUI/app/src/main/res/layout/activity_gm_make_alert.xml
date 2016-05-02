@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.GM_make_alert">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="600dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/hbg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Send Alert"
+        android:id="@+id/post_mission"
+        android:background="#fb8a00"
+        android:layout_marginTop="400dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="make_announcement_Click" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:text=""
+        android:background="#fc9f59"
+        android:id="@+id/textView3"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_alignLeft="@+id/post_mission"
+        android:layout_alignStart="@+id/post_mission" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:background="#fc9f59"
+        android:id="@+id/alert_details"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="70dp"
+        android:gravity="top"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/who">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert Everyone"
+            android:id="@+id/is_all_alert"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:buttonTint="@color/RBcolor"
+            android:textColor="#000000"
+            android:checked="true"
+            android:clickable="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert Humans"
+            android:id="@+id/is_human_alert"
+            android:layout_gravity="center_horizontal"
+            android:buttonTint="@color/RBcolor"
+            android:textColor="#000000" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert Zombies"
+            android:id="@+id/is_zombie_alert"
+            android:layout_gravity="center_horizontal"
+            android:buttonTint="@color/RBcolor"
+            android:textColor="#000000" />
+
+    </RadioGroup>
+
+
+</RelativeLayout>

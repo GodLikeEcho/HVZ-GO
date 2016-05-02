@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="redacted.hvzui.Z_user_menu">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/bg"
+        android:scaleType = "centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Chat"
+        android:id="@+id/Chat"
+        android:background="#910a0a"
+        android:nestedScrollingEnabled="false"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:onClick="Z_chat_Click"
+        android:layout_below="@+id/reportTag"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Mission"
+        android:id="@+id/Mission"
+        android:background="#910a0a"
+        android:onClick="Z_missions_Click"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:layout_below="@+id/Chat"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Rules"
+        android:id="@+id/Rules"
+        android:background="#910a0a"
+        android:onClick="Z_rules_Click"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:layout_below="@+id/StunTimer"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="!"
+        android:id="@+id/Moderate"
+        android:background="#910a0a"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="Z_report_Click"
+        android:longClickable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/TimerBox"
+        android:layout_alignParentTop="true"
+        android:background="#910a0a"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        android:autoText="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/StarveBox"
+        android:background="#910a0a"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TimerBox"
+
+        android:autoText="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:text="Report Tag"
+        android:id="@+id/reportTag"
+        android:background="#910a0a"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:onClick="Z_tag_click"
+        android:layout_below="@+id/Rules"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:text="Begin Stun Timer"
+        android:id="@+id/StunTimer"
+        android:background="#910a0a"
+        android:onClick="beginTimer"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:layout_below="@+id/StarveBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="#910a0a"
+        android:text="All Chat"
+        android:id="@+id/button4"
+        android:onClick="A_chat_Click"
+        android:layout_below="@+id/Mission"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="#910a0a"
+        android:text="Settings"
+        android:id="@+id/settingsbutton"
+        android:onClick="z_settings_Click"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
