@@ -153,7 +153,7 @@
 -(NSString*)CallLogin:(NSString*)username :(NSString*)password
 {
 
-    NSString *retVal = [[NSString alloc] init];
+    __block NSString *temp = [[NSString alloc] init];
     NSURL *url = [NSURL URLWithString:@"http://www.hvz-go.com/iosLogin.php"];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -168,14 +168,15 @@
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
                                                    options:kNilOptions error:&error];
-    
+
     if (!error) {
         // 4
         NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
                                                                    fromData:data completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
                                                                        NSDictionary *json= [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                                                                        NSLog(@"GotThis: %@", json[@"faction"]);
-                                                                       &retval = json[@"faction"];
+                                                                       temp = json[@"faction"];
+                                                                       NSLog(@"Temp is: %@", temp);
                                                                        
                                                                       
                                                                    }];
@@ -184,10 +185,10 @@
         // 5
         [uploadTask resume];
     }
-    retVal = temp;
-    NSLog(@"Returned: %@", retVal);
+    
+    NSLog(@"Returned: %@", temp);
     //login php stuff
-    return retVal;
+    return temp;
 }
 
 - (void)viewDidLoad {

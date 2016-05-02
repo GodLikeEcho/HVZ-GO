@@ -13,5 +13,6 @@
 
 -(IBAction)SwitchToAllChatView;
 -(IBAction)SwitchToFactionChatView;
+@property NSString * faction;
 
 @end

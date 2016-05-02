@@ -24,12 +24,12 @@
 
 -(IBAction)SwitchToFactionChatView
 {
-    NSString *sFaction = [ObjectStorage Faction];
+    
     UIStoryboard *storyboard = self.storyboard;
     
     //check to see which faction user is in.
     NSString *faction = [[NSString alloc] init];
-    if([sFaction isEqual: @"H"])
+    if([_faction isEqual: @"Human"])
         faction = @"HumanChatView";
     else
         faction = @"ZombieChatView";

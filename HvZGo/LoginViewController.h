@@ -16,6 +16,7 @@
 }
 @property (weak, nonatomic) IBOutlet UITextField *UserNameText;
 @property (weak, nonatomic) IBOutlet UITextField *PasswordText;
+@property (weak, nonatomic) __block NSString *faction;
 -(BOOL)CheckValidLogin:(NSString*)pswd :(NSString*)uname;
 -(IBAction)SwitchToZombieView;
 -(IBAction)SwitchToHumanView;
