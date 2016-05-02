@@ -23,6 +23,7 @@
 		714075101C7643EC00062332 /* HvZGoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7140750F1C7643EC00062332 /* HvZGoUITests.m */; };
 		71F278C31C9C0D1500FE20A0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F278C21C9C0D1500FE20A0 /* LoginViewController.m */; };
 		71F278C81C9C160800FE20A0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F278C71C9C160800FE20A0 /* SettingsViewController.m */; };
+		F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839531CD7E51500A84586 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		71F278C21C9C0D1500FE20A0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		71F278C61C9C160800FE20A0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
 		71F278C71C9C160800FE20A0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
+		F48839521CD7E51500A84586 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		F48839531CD7E51500A84586 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				714074EE1C7643EC00062332 /* FirstViewController.m */,
 				714074F01C7643EC00062332 /* SecondViewController.h */,
 				714074F11C7643EC00062332 /* SecondViewController.m */,
+				F48839521CD7E51500A84586 /* ThirdViewController.h */,
+				F48839531CD7E51500A84586 /* ThirdViewController.m */,
 				71F278C61C9C160800FE20A0 /* SettingsViewController.h */,
 				71F278C71C9C160800FE20A0 /* SettingsViewController.m */,
 				7105C3D41CB2C5360058D44B /* ChatViewController.h */,
@@ -316,6 +321,7 @@
 				714074EF1C7643EC00062332 /* FirstViewController.m in Sources */,
 				71F278C81C9C160800FE20A0 /* SettingsViewController.m in Sources */,
 				7105C3E51CC616F80058D44B /* networktranslation.swift in Sources */,
+				F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */,
 				7105C3DB1CBB12140058D44B /* KeychainItemWrapper.m in Sources */,
 				714074E91C7643EC00062332 /* main.m in Sources */,
 				7105C3E21CBB18D40058D44B /* ObjectStorage.m in Sources */,

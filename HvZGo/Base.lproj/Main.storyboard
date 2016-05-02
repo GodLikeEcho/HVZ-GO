@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TRh-L5-sQK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TRh-L5-sQK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVp-fP-IZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1028" y="-2618"/>
+            <point key="canvasLocation" x="-829" y="-2614"/>
         </scene>
         <!--ChatView-->
         <scene sceneID="qA8-nr-FS8">
@@ -450,6 +450,16 @@
                                     <action selector="DisplayLoginAlert:" destination="TRh-L5-sQK" eventType="touchUpInside" id="aqF-nG-Izj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tw5-bd-z9x">
+                                <rect key="frame" x="43" y="242" width="235" height="30"/>
+                                <color key="backgroundColor" red="0.90937909029999997" green="0.45657374830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Moderator UI">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SwitchToModeratorView:" destination="TRh-L5-sQK" eventType="touchUpInside" id="rx7-9Z-Dlb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -490,7 +500,70 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1444" y="-3072"/>
+            <point key="canvasLocation" x="-1498" y="-3026"/>
+        </scene>
+        <!--ModeratorVC-->
+        <scene sceneID="8mo-yJ-O1W">
+            <objects>
+                <tabBarController storyboardIdentifier="ModeratorVC" title="ModeratorVC" id="6xD-lr-YIh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="63R-c4-qSl"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3Nd-m4-sKp">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZBB-f6-i5b" kind="relationship" relationship="viewControllers" id="7pO-Qa-vwz"/>
+                        <segue destination="Ghq-zp-ieP" kind="relationship" relationship="viewControllers" id="0mv-c4-orO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5e-l2-U7e" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1652" y="-1060"/>
+        </scene>
+        <!--Moderator UI-->
+        <scene sceneID="vuW-ku-o6P">
+            <objects>
+                <viewController storyboardIdentifier="Moderator UI" title="Moderator UI" id="ZBB-f6-i5b" userLabel="Moderator UI" customClass="ThirdViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T51-ve-muX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ssi-hN-1h2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eXx-xK-WLf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thi-5z-HJK">
+                                <rect key="frame" x="16" y="90" width="288" height="60"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Vx3-CB-ylk"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Announcement">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKw-TA-btI">
+                                <rect key="frame" x="16" y="171" width="288" height="60"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="77g-NC-Tsn"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Missions">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Moderator UI" image="HumanImg" id="DGz-DX-u0O" userLabel="Moderator UI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZJ-wZ-191" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-829" y="-821"/>
         </scene>
     </scenes>
     <resources>
@@ -502,6 +575,6 @@
         <image name="combbg" width="320" height="530"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xRV-S6-4DV"/>
+        <segue reference="0mv-c4-orO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -137,6 +137,13 @@
     [self presentViewController:vc animated:YES completion:nil];
     
 }
+
+-(IBAction)SwitchToModeratorView:(id)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModeratorVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+
+}
 -(IBAction)RegisterUser:(id)sender
 {
     //register user

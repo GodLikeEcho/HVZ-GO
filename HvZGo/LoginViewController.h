@@ -20,6 +20,7 @@
 -(BOOL)CheckValidLogin:(NSString*)pswd :(NSString*)uname;
 -(IBAction)SwitchToZombieView;
 -(IBAction)SwitchToHumanView;
+-(IBAction)SwitchToModeratorView;
 -(IBAction)DisplayLoginAlert:(id)sender;
 -(NSString*)CallLogin:(NSString*)username :(NSString*)password;
 
