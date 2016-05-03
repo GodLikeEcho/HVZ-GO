@@ -26,6 +26,9 @@
 		F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839531CD7E51500A84586 /* ThirdViewController.m */; };
 		F48839571CD8100300A84586 /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839561CD8100300A84586 /* AnnouncementViewController.m */; };
 		F488395A1CD81E3F00A84586 /* PostMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839591CD81E3F00A84586 /* PostMissionViewController.m */; };
+		F488395D1CD917FD00A84586 /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F488395C1CD917FD00A84586 /* ReportsViewController.m */; };
+		F48839601CD91A2F00A84586 /* BanPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F488395F1CD91A2F00A84586 /* BanPlayerViewController.m */; };
+		F48839631CD91A7F00A84586 /* GameSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839621CD91A7F00A84586 /* GameSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,12 @@
 		F48839561CD8100300A84586 /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementViewController.m; sourceTree = "<group>"; };
 		F48839581CD81E3F00A84586 /* PostMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMissionViewController.h; sourceTree = "<group>"; };
 		F48839591CD81E3F00A84586 /* PostMissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMissionViewController.m; sourceTree = "<group>"; };
+		F488395B1CD917FD00A84586 /* ReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsViewController.h; sourceTree = "<group>"; };
+		F488395C1CD917FD00A84586 /* ReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsViewController.m; sourceTree = "<group>"; };
+		F488395E1CD91A2F00A84586 /* BanPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BanPlayerViewController.h; sourceTree = "<group>"; };
+		F488395F1CD91A2F00A84586 /* BanPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BanPlayerViewController.m; sourceTree = "<group>"; };
+		F48839611CD91A7F00A84586 /* GameSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingsViewController.h; sourceTree = "<group>"; };
+		F48839621CD91A7F00A84586 /* GameSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +158,12 @@
 				F48839561CD8100300A84586 /* AnnouncementViewController.m */,
 				F48839581CD81E3F00A84586 /* PostMissionViewController.h */,
 				F48839591CD81E3F00A84586 /* PostMissionViewController.m */,
+				F488395B1CD917FD00A84586 /* ReportsViewController.h */,
+				F488395C1CD917FD00A84586 /* ReportsViewController.m */,
+				F488395E1CD91A2F00A84586 /* BanPlayerViewController.h */,
+				F488395F1CD91A2F00A84586 /* BanPlayerViewController.m */,
+				F48839611CD91A7F00A84586 /* GameSettingsViewController.h */,
+				F48839621CD91A7F00A84586 /* GameSettingsViewController.m */,
 				71F278C61C9C160800FE20A0 /* SettingsViewController.h */,
 				71F278C71C9C160800FE20A0 /* SettingsViewController.m */,
 				7105C3D41CB2C5360058D44B /* ChatViewController.h */,
@@ -327,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				714074F21C7643EC00062332 /* SecondViewController.m in Sources */,
+				F48839631CD91A7F00A84586 /* GameSettingsViewController.m in Sources */,
 				714074EC1C7643EC00062332 /* AppDelegate.m in Sources */,
 				714074EF1C7643EC00062332 /* FirstViewController.m in Sources */,
 				71F278C81C9C160800FE20A0 /* SettingsViewController.m in Sources */,
@@ -335,7 +351,9 @@
 				F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */,
 				F488395A1CD81E3F00A84586 /* PostMissionViewController.m in Sources */,
 				7105C3DB1CBB12140058D44B /* KeychainItemWrapper.m in Sources */,
+				F48839601CD91A2F00A84586 /* BanPlayerViewController.m in Sources */,
 				714074E91C7643EC00062332 /* main.m in Sources */,
+				F488395D1CD917FD00A84586 /* ReportsViewController.m in Sources */,
 				7105C3E21CBB18D40058D44B /* ObjectStorage.m in Sources */,
 				7105C3D61CB2C5360058D44B /* ChatViewController.m in Sources */,
 				71F278C31C9C0D1500FE20A0 /* LoginViewController.m in Sources */,

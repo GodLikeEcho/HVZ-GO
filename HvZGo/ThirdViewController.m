@@ -9,8 +9,11 @@
 #import "ThirdViewController.h"
 
 @interface ThirdViewController ()
-- (IBAction)SwitchToAnnouncementView:(UIButton *)sender;
+- (IBAction)SwitchToReportsView:(UIButton *)sender;
+- (IBAction)SwitchToBanPlayerView:(UIButton *)sender;
+- (IBAction)SwitchToGameSettingsView:(UIButton *)sender;
 - (IBAction)SwitchToPostMissionView:(UIButton *)sender;
+- (IBAction)SwitchToAnnouncementView:(UIButton *)sender;
 
 @end
 
@@ -36,9 +39,21 @@
 }
 */
 
-- (IBAction)SwitchToAnnouncementView:(UIButton *)sender {
+- (IBAction)SwitchToReportsView:(UIButton *)sender {
     UIStoryboard *storyboard = self.storyboard;
-    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Announcement UI"];
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewReports"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)SwitchToBanPlayerView:(UIButton *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"BanPlayer"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)SwitchToGameSettingsView:(UIButton *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"GameSettings"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -47,4 +62,11 @@
     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"PostMissionView"];
     [self presentViewController:vc animated:YES completion:nil];
 }
+
+- (IBAction)SwitchToAnnouncementView:(UIButton *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Announcement UI"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 @end
