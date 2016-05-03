@@ -14,6 +14,7 @@
 - (IBAction)SwitchToGameSettingsView:(UIButton *)sender;
 - (IBAction)SwitchToPostMissionView:(UIButton *)sender;
 - (IBAction)SwitchToAnnouncementView:(UIButton *)sender;
+- (IBAction)SwitchToChatView:(UIButton *)sender;
 
 @end
 
@@ -66,6 +67,12 @@
 - (IBAction)SwitchToAnnouncementView:(UIButton *)sender {
     UIStoryboard *storyboard = self.storyboard;
     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Announcement UI"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)SwitchToChatView:(UIButton *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModChatTabCon"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

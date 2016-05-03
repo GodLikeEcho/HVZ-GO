@@ -29,6 +29,10 @@
 		F488395D1CD917FD00A84586 /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F488395C1CD917FD00A84586 /* ReportsViewController.m */; };
 		F48839601CD91A2F00A84586 /* BanPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F488395F1CD91A2F00A84586 /* BanPlayerViewController.m */; };
 		F48839631CD91A7F00A84586 /* GameSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839621CD91A7F00A84586 /* GameSettingsViewController.m */; };
+		F48839661CD91E1300A84586 /* AllChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839651CD91E1300A84586 /* AllChatViewController.m */; };
+		F48839691CD922B200A84586 /* ModChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48839681CD922B200A84586 /* ModChatViewController.m */; };
+		F488396C1CD922CF00A84586 /* HumanChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F488396B1CD922CF00A84586 /* HumanChatViewController.m */; };
+		F488396F1CD922DE00A84586 /* ZombieChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F488396E1CD922DE00A84586 /* ZombieChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,14 @@
 		F488395F1CD91A2F00A84586 /* BanPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BanPlayerViewController.m; sourceTree = "<group>"; };
 		F48839611CD91A7F00A84586 /* GameSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingsViewController.h; sourceTree = "<group>"; };
 		F48839621CD91A7F00A84586 /* GameSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingsViewController.m; sourceTree = "<group>"; };
+		F48839641CD91E1300A84586 /* AllChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllChatViewController.h; sourceTree = "<group>"; };
+		F48839651CD91E1300A84586 /* AllChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllChatViewController.m; sourceTree = "<group>"; };
+		F48839671CD922B200A84586 /* ModChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModChatViewController.h; sourceTree = "<group>"; };
+		F48839681CD922B200A84586 /* ModChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModChatViewController.m; sourceTree = "<group>"; };
+		F488396A1CD922CF00A84586 /* HumanChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanChatViewController.h; sourceTree = "<group>"; };
+		F488396B1CD922CF00A84586 /* HumanChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanChatViewController.m; sourceTree = "<group>"; };
+		F488396D1CD922DE00A84586 /* ZombieChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZombieChatViewController.h; sourceTree = "<group>"; };
+		F488396E1CD922DE00A84586 /* ZombieChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZombieChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +182,14 @@
 				7105C3D51CB2C5360058D44B /* ChatViewController.m */,
 				71F278C11C9C0D1500FE20A0 /* LoginViewController.h */,
 				71F278C21C9C0D1500FE20A0 /* LoginViewController.m */,
+				F48839671CD922B200A84586 /* ModChatViewController.h */,
+				F48839681CD922B200A84586 /* ModChatViewController.m */,
+				F48839641CD91E1300A84586 /* AllChatViewController.h */,
+				F48839651CD91E1300A84586 /* AllChatViewController.m */,
+				F488396A1CD922CF00A84586 /* HumanChatViewController.h */,
+				F488396B1CD922CF00A84586 /* HumanChatViewController.m */,
+				F488396D1CD922DE00A84586 /* ZombieChatViewController.h */,
+				F488396E1CD922DE00A84586 /* ZombieChatViewController.m */,
 				714074F31C7643EC00062332 /* Main.storyboard */,
 				714074F61C7643EC00062332 /* Assets.xcassets */,
 				714074F81C7643EC00062332 /* LaunchScreen.storyboard */,
@@ -347,8 +367,11 @@
 				714074EF1C7643EC00062332 /* FirstViewController.m in Sources */,
 				71F278C81C9C160800FE20A0 /* SettingsViewController.m in Sources */,
 				7105C3E51CC616F80058D44B /* networktranslation.swift in Sources */,
+				F48839661CD91E1300A84586 /* AllChatViewController.m in Sources */,
 				F48839571CD8100300A84586 /* AnnouncementViewController.m in Sources */,
 				F48839541CD7E51500A84586 /* ThirdViewController.m in Sources */,
+				F48839691CD922B200A84586 /* ModChatViewController.m in Sources */,
+				F488396C1CD922CF00A84586 /* HumanChatViewController.m in Sources */,
 				F488395A1CD81E3F00A84586 /* PostMissionViewController.m in Sources */,
 				7105C3DB1CBB12140058D44B /* KeychainItemWrapper.m in Sources */,
 				F48839601CD91A2F00A84586 /* BanPlayerViewController.m in Sources */,
@@ -356,6 +379,7 @@
 				F488395D1CD917FD00A84586 /* ReportsViewController.m in Sources */,
 				7105C3E21CBB18D40058D44B /* ObjectStorage.m in Sources */,
 				7105C3D61CB2C5360058D44B /* ChatViewController.m in Sources */,
+				F488396F1CD922DE00A84586 /* ZombieChatViewController.m in Sources */,
 				71F278C31C9C0D1500FE20A0 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
