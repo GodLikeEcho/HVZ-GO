@@ -34,4 +34,9 @@
 }
 */
 
+- (IBAction)goBack:(UISwipeGestureRecognizer *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModeratorVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 @end

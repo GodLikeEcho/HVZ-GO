@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PostMissionViewController : UIViewController
+- (IBAction)goBack:(UISwipeGestureRecognizer *)sender;
 
 @end

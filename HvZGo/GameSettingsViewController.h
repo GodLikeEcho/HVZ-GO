@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GameSettingsViewController : UIViewController
+- (IBAction)goBack:(UISwipeGestureRecognizer *)sender;
 
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AnnouncementViewController : UIViewController
+- (IBAction)goBack:(UISwipeGestureRecognizer *)sender;
 
 @end

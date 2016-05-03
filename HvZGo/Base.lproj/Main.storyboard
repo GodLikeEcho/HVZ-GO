@@ -674,12 +674,30 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbO-JD-Faj">
+                                <rect key="frame" x="20" y="89" width="46" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="Zpi-uN-QWq" eventType="touchUpInside" id="m5s-nh-BtN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Fnj-Od-vnx" appends="YES" id="VS1-fq-ygI"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="LXS-42-ytI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGZ-qA-W7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Fnj-Od-vnx">
+                    <connections>
+                        <action selector="goBack:" destination="Zpi-uN-QWq" id="q4B-mb-slE"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="915" y="-1787"/>
         </scene>
@@ -742,9 +760,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7fh-oc-mKu" appends="YES" id="Wta-t3-fe5"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tad-pL-7ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="7fh-oc-mKu">
+                    <connections>
+                        <action selector="goBack:" destination="UGl-qn-Hyc" id="nuA-sI-Nxp"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1291" y="-1787"/>
         </scene>
@@ -776,9 +803,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8PY-HL-cMN" appends="YES" id="bcN-AY-hxy"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhh-Gh-ahu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="8PY-HL-cMN">
+                    <connections>
+                        <action selector="goBack:" destination="pw0-bT-tLh" id="l5R-5J-kYD"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1663" y="-1787"/>
         </scene>
@@ -851,9 +887,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nef-om-3Ge" appends="YES" id="yax-2d-kUe"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1s-Nn-hEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="nef-om-3Ge">
+                    <connections>
+                        <action selector="goBack:" destination="09x-TO-D3O" id="qGo-S1-2lf"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2018" y="-1787"/>
         </scene>
@@ -915,9 +960,18 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mFO-Tx-K0y" appends="YES" id="Nk2-g6-bJ6"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcK-Ei-9KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="mFO-Tx-K0y">
+                    <connections>
+                        <action selector="goBack:" destination="IZt-fv-wDB" id="Ryc-zd-Qgd"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2370" y="-1787"/>
         </scene>

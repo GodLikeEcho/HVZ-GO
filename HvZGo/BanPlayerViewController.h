@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BanPlayerViewController : UIViewController
+- (IBAction)goBack:(UISwipeGestureRecognizer *)sender;
 
 @end
