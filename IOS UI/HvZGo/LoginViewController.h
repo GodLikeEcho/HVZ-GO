@@ -20,8 +20,10 @@
 -(BOOL)CheckValidLogin:(NSString*)pswd :(NSString*)uname;
 -(IBAction)SwitchToZombieView;
 -(IBAction)SwitchToHumanView;
--(IBAction)SwitchToModeratorView;
+-(IBAction)SwitchToModeratorView:(id)sender;
 -(IBAction)DisplayLoginAlert:(id)sender;
--(NSString*)CallLogin:(NSString*)username :(NSString*)password;
+-(void)alertPasswordVerify:(UITextField *)sender;
+-(void)CallLogin:(NSString*)username :(NSString*)password completion:(void (^)(NSDictionary *responseObject, NSError *error))completion;
+-(void)CallRegister:(NSString*)username :(NSString*)password completion:(void (^)(NSDictionary *responseObject, NSError *error))completion;
 
 @end
