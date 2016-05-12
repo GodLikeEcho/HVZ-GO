@@ -3,4 +3,8 @@
     <string name="title_activity_login">login</string>
     <string name="title_activity_user_menu">UserMenu</string>
     <string name="title_activity_z_user_menu">Z_user_menu</string>
+    <string name="title_activity_z_tag_scanner">Z_tag_scanner</string>
+    <string name="title_activity_qrview">QRview</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

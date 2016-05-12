@@ -3,6 +3,7 @@
     package="redacted.hvzui" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -86,6 +87,11 @@
         <activity
             android:name=".GM_chat_room"
             android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".Z_tag_scanner"
+            android:label="@string/title_activity_z_tag_scanner"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 
