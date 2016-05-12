@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TRh-L5-sQK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TRh-L5-sQK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -643,8 +643,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wyq-tB-csj">
+                                <rect key="frame" x="73" y="47" width="174" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="dhK-KG-3TV"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Human"/>
+                                    <segment title="Zombie"/>
+                                    <segment title="All"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="factionChoice:" destination="Zpi-uN-QWq" eventType="valueChanged" id="izM-Te-xhm"/>
+                                </connections>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-DP-yHC">
-                                <rect key="frame" x="16" y="423" width="288" height="60"/>
+                                <rect key="frame" x="16" y="472" width="288" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="AwX-pS-Vyo"/>
@@ -653,40 +668,31 @@
                                 <state key="normal" title="Post Announcement">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendButton:" destination="Zpi-uN-QWq" eventType="touchUpInside" id="q6i-x0-wxp"/>
+                                </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wyq-tB-csj">
-                                <rect key="frame" x="73" y="67" width="174" height="29"/>
-                                <segments>
-                                    <segment title="Human"/>
-                                    <segment title="Zombie"/>
-                                    <segment title="All"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8u-e6-dbf">
-                                <rect key="frame" x="16" y="127" width="288" height="272"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="272" id="hae-XT-pcO"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W4L-CN-5OF">
+                                <rect key="frame" x="20" y="98" width="280" height="354"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="D8u-e6-dbf" firstAttribute="leading" secondItem="JH9-yc-TYl" secondAttribute="leadingMargin" constant="-4" id="1jn-cA-PRk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wyq-tB-csj" secondAttribute="trailing" constant="53" id="2B4-m7-mDE"/>
-                            <constraint firstItem="D8u-e6-dbf" firstAttribute="top" secondItem="JH9-yc-TYl" secondAttribute="topMargin" constant="127" id="3Fk-1M-C95"/>
+                            <constraint firstItem="cJp-1a-4rZ" firstAttribute="top" secondItem="tZ3-DP-yHC" secondAttribute="bottom" constant="36" id="7l7-ec-THQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tZ3-DP-yHC" secondAttribute="trailing" constant="-4" id="9cR-Ae-MAs"/>
-                            <constraint firstItem="wyq-tB-csj" firstAttribute="top" secondItem="cX1-BN-8Gs" secondAttribute="bottom" constant="47" id="TaI-0U-wjK"/>
-                            <constraint firstItem="tZ3-DP-yHC" firstAttribute="top" secondItem="D8u-e6-dbf" secondAttribute="bottom" constant="24" id="YjF-6z-HRF"/>
-                            <constraint firstItem="cJp-1a-4rZ" firstAttribute="top" secondItem="tZ3-DP-yHC" secondAttribute="bottom" constant="85" id="j6a-hh-6TH"/>
+                            <constraint firstItem="W4L-CN-5OF" firstAttribute="leading" secondItem="JH9-yc-TYl" secondAttribute="leadingMargin" id="KXJ-YZ-xcp"/>
+                            <constraint firstItem="tZ3-DP-yHC" firstAttribute="leading" secondItem="JH9-yc-TYl" secondAttribute="leadingMargin" constant="-4" id="Sg0-2v-Ize"/>
+                            <constraint firstItem="wyq-tB-csj" firstAttribute="top" secondItem="cX1-BN-8Gs" secondAttribute="bottom" constant="27" id="Zgn-CK-RCq"/>
+                            <constraint firstItem="tZ3-DP-yHC" firstAttribute="top" secondItem="W4L-CN-5OF" secondAttribute="bottom" constant="20" id="aZq-DC-4mx"/>
+                            <constraint firstItem="W4L-CN-5OF" firstAttribute="trailing" secondItem="JH9-yc-TYl" secondAttribute="trailingMargin" id="dHg-Tu-W9R"/>
                             <constraint firstItem="tZ3-DP-yHC" firstAttribute="leading" secondItem="JH9-yc-TYl" secondAttribute="leadingMargin" constant="-4" id="mgQ-tV-pqg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D8u-e6-dbf" secondAttribute="trailing" constant="-4" id="psN-et-sJW"/>
+                            <constraint firstItem="W4L-CN-5OF" firstAttribute="top" secondItem="wyq-tB-csj" secondAttribute="bottom" constant="25" id="nLj-gX-pAr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tZ3-DP-yHC" secondAttribute="trailing" constant="-4" id="qY1-Js-eKz"/>
                             <constraint firstItem="wyq-tB-csj" firstAttribute="leading" secondItem="JH9-yc-TYl" secondAttribute="leadingMargin" constant="53" id="yN3-AQ-j4t"/>
                         </constraints>
                         <connections>
@@ -694,6 +700,9 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="LXS-42-ytI"/>
+                    <connections>
+                        <outlet property="textBox" destination="W4L-CN-5OF" id="zVO-cG-0rt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGZ-qA-W7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="Fnj-Od-vnx">
@@ -1147,24 +1156,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGm-5n-QPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2662" y="-828"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="HHQ-2N-jYr">
-            <objects>
-                <viewController id="QBl-CJ-6bg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5XM-9L-rkf"/>
-                        <viewControllerLayoutGuide type="bottom" id="ihQ-3n-Dcg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="02t-Nq-EH2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A24-5c-ueC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1255" y="-1402"/>
         </scene>
     </scenes>
     <resources>

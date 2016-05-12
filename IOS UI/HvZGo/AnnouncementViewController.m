@@ -34,10 +34,99 @@
 }
 */
 
+- (IBAction)sendButton:(UIButton *)sender {
+    
+    //UITextField *login = _textBox.text;
+    //UITextField *password = alertController.textFields.lastObject;
+    
+    NSString *message = _textBox.text;
+    NSString *faction = @"Z";
+    [self postAlert:message :faction completion:^(NSDictionary *response, NSError *error) {
+        if (response) {
+            NSLog(@"Response: %@", response[@"faction"]);
+            //_faction = response[@"faction"];
+        }
+        else {
+            NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);
+        }
+    }];
+
+    
+
+}
+
 - (IBAction)goBack:(UISwipeGestureRecognizer *)sender {
     UIStoryboard *storyboard = self.storyboard;
     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModeratorVC"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+-(void)postAlert:(NSString*)message :(NSString*)faction completion:(void (^)(NSDictionary *responseObject, NSError *error))completion
+{
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.hvz-go.com/iosRegister.php"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    
+    // 2
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"POST";
+    
+    // 3
+    NSDictionary *dictionary = @{@"message":message, @"faction":faction};
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                   options:kNilOptions error:&error];
+    
+    if (!error) {
+        // 4
+        NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
+                                                                   fromData:data completionHandler:^(NSData *data,NSURLResponse *response,NSError *error)
+                                              {
+                                                  if (!data) {
+                                                      if (completion) {
+                                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                                              completion(nil, error);
+                                                          });
+                                                      }
+                                                      return;
+                                                  }
+                                                  
+                                                  NSError *parseError = nil;
+                                                  NSDictionary *returnedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                                  
+                                                  if (!returnedData) {
+                                                      if (completion) {
+                                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                                              completion(nil, parseError);
+                                                          });
+                                                      }
+                                                      return;
+                                                  }
+                                                  
+                                                  // if everything is ok, then just return the JSON object
+                                                  
+                                                  if (completion) {
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          completion(returnedData, nil);
+                                                      });
+                                                  }
+                                                  
+                                                  
+                                              }];
+        
+        
+        // 5
+        [uploadTask resume];
+    }
+    
+    
+}
+
+
+
+- (IBAction)factionChoice:(UISegmentedControl *)sender {
+    NSString *selected = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+}
 @end
