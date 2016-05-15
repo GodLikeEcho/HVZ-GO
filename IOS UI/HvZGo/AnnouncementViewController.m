@@ -64,7 +64,7 @@
 -(void)postAlert:(NSString*)message :(NSString*)faction completion:(void (^)(NSDictionary *responseObject, NSError *error))completion
 {
     
-    NSURL *url = [NSURL URLWithString:@"http://www.hvz-go.com/iosRegister.php"];
+    NSURL *url = [NSURL URLWithString:@"http://www.hvz-go.com/iosPostAlert.php"];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
