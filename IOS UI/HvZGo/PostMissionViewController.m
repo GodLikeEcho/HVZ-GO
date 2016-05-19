@@ -39,4 +39,10 @@
     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModeratorVC"];
     [self presentViewController:vc animated:YES completion:nil];
 }
+
+- (IBAction)toggleFaction:(UISegmentedControl *)sender {
+}
+
+- (IBAction)clickMission:(UIButton *)sender {
+}
 @end

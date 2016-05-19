@@ -740,17 +740,9 @@
                                 <state key="normal" title="Post Mission">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZI-yJ-emZ">
-                                <rect key="frame" x="16" y="163" width="288" height="281"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="188" id="nMf-2x-VCd"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <connections>
+                                    <action selector="clickMission:" destination="UGl-qn-Hyc" eventType="touchUpInside" id="nbU-RP-wop"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PF6-GT-wbI">
                                 <rect key="frame" x="78" y="51" width="165" height="29"/>
@@ -759,36 +751,49 @@
                                     <segment title="Zombie"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="toggleFaction:" destination="UGl-qn-Hyc" eventType="valueChanged" id="Bh4-Yg-HJz"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNb-1A-dhG">
                                 <rect key="frame" x="241" y="117" width="59" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtf-VD-dMy">
+                                <rect key="frame" x="20" y="155" width="284" height="308"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="OZI-yJ-emZ" secondAttribute="trailing" constant="-4" id="5Yc-iF-vg3"/>
-                            <constraint firstItem="OZI-yJ-emZ" firstAttribute="leading" secondItem="7Ob-IO-jfT" secondAttribute="leadingMargin" constant="-4" id="AMp-Dj-knA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rtf-VD-dMy" secondAttribute="trailing" constant="-4" id="1cp-hk-ZCV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hv7-yw-jJW" secondAttribute="trailing" constant="-4" id="FNu-SN-vlg"/>
+                            <constraint firstItem="Hv7-yw-jJW" firstAttribute="top" secondItem="Rtf-VD-dMy" secondAttribute="bottom" constant="8" id="TCM-2h-KQv"/>
                             <constraint firstItem="jDO-VI-Y59" firstAttribute="top" secondItem="Hv7-yw-jJW" secondAttribute="bottom" constant="37" id="Xvf-Cc-dXE"/>
                             <constraint firstItem="JNb-1A-dhG" firstAttribute="trailing" secondItem="7Ob-IO-jfT" secondAttribute="trailingMargin" id="Yn7-vA-SbT"/>
                             <constraint firstItem="PF6-GT-wbI" firstAttribute="leading" secondItem="7Ob-IO-jfT" secondAttribute="leadingMargin" constant="58" id="bSd-JU-bHU"/>
                             <constraint firstItem="XYi-fY-MhH" firstAttribute="top" secondItem="ApO-eo-95g" secondAttribute="bottom" constant="97" id="crJ-qa-Q5J"/>
                             <constraint firstItem="JNb-1A-dhG" firstAttribute="top" secondItem="ApO-eo-95g" secondAttribute="bottom" constant="97" id="dBI-j2-eX7"/>
+                            <constraint firstItem="Rtf-VD-dMy" firstAttribute="top" secondItem="JNb-1A-dhG" secondAttribute="bottom" constant="8" id="ero-5Q-unz"/>
                             <constraint firstItem="JNb-1A-dhG" firstAttribute="leading" secondItem="XYi-fY-MhH" secondAttribute="trailing" constant="56" id="f07-XS-bA5"/>
-                            <constraint firstItem="OZI-yJ-emZ" firstAttribute="top" secondItem="ApO-eo-95g" secondAttribute="bottom" constant="143" id="jb8-9n-qxS"/>
                             <constraint firstItem="XYi-fY-MhH" firstAttribute="leading" secondItem="7Ob-IO-jfT" secondAttribute="leadingMargin" id="k4w-Vs-vpf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PF6-GT-wbI" secondAttribute="trailing" constant="57" id="pfN-YX-fVY"/>
                             <constraint firstItem="PF6-GT-wbI" firstAttribute="top" secondItem="ApO-eo-95g" secondAttribute="bottom" constant="31" id="wAQ-kO-VaK"/>
                             <constraint firstItem="Hv7-yw-jJW" firstAttribute="leading" secondItem="7Ob-IO-jfT" secondAttribute="leadingMargin" constant="-4" id="yUb-1U-IcW"/>
-                            <constraint firstItem="Hv7-yw-jJW" firstAttribute="top" secondItem="OZI-yJ-emZ" secondAttribute="bottom" constant="27" id="yaV-F2-I0m"/>
+                            <constraint firstItem="Rtf-VD-dMy" firstAttribute="leading" secondItem="7Ob-IO-jfT" secondAttribute="leadingMargin" id="ykU-cR-Gi7"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="7fh-oc-mKu" appends="YES" id="Wta-t3-fe5"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="textBox" destination="Rtf-VD-dMy" id="mrP-io-5BT"/>
+                        <outlet property="timeBox" destination="JNb-1A-dhG" id="ifK-BY-VGy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tad-pL-7ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="7fh-oc-mKu">

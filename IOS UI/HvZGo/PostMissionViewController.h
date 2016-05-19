@@ -10,5 +10,9 @@
 
 @interface PostMissionViewController : UIViewController
 - (IBAction)goBack:(UISwipeGestureRecognizer *)sender;
+- (IBAction)toggleFaction:(UISegmentedControl *)sender;
+- (IBAction)clickMission:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITextField *timeBox;
+@property (weak, nonatomic) IBOutlet UITextView *textBox;
 
 @end
