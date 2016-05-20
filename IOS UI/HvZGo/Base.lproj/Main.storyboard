@@ -859,64 +859,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ban User" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-fP-fcM">
-                                <rect key="frame" x="112" y="51" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ban User" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-fP-fcM">
+                                <rect key="frame" x="15" y="50" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kdv-f3-heH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vv7-Pt-CdV">
-                                <rect key="frame" x="16" y="89" width="288" height="52"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Days banned" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zMQ-oT-67W">
+                                <rect key="frame" x="15" y="193" width="128" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="7fE-33-og1"/>
+                                    <constraint firstAttribute="height" constant="30" id="cgi-nk-2Ui"/>
                                 </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijp-Gc-rQY">
-                                <rect key="frame" x="16" y="219" width="288" height="52"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="Juw-TD-aP6"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rr4-3S-IUi">
-                                <rect key="frame" x="16" y="341" width="288" height="52"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="xD1-Ya-hWH"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Days banned" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zMQ-oT-67W">
-                                <rect key="frame" x="96" y="181" width="128" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ban Reason" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5tg-Ep-pC4">
-                                <rect key="frame" x="112" y="303" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccn-Iw-c1x">
-                                <rect key="frame" x="120" y="431" width="81" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccn-Iw-c1x">
+                                <rect key="frame" x="15" y="465" width="285" height="83"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="8MT-lS-4jT"/>
+                                </constraints>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1DK-V9-E8n">
+                                <rect key="frame" x="15" y="88" width="285" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="EmA-c9-3xG"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G4u-pe-INo">
+                                <rect key="frame" x="15" y="238" width="285" height="76"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="wZv-Vf-Q9Q"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8qk-ee-Dfe">
+                                <rect key="frame" x="15" y="379" width="285" height="73"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="zjU-v3-jW7"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ban Reason" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5tg-Ep-pC4">
+                                <rect key="frame" x="15" y="332" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZL9-72-MGv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6ch-fP-fcM" secondAttribute="trailing" constant="157" id="1eP-jX-0Nw"/>
+                            <constraint firstItem="8qk-ee-Dfe" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="2cx-vt-80j"/>
+                            <constraint firstItem="5tg-Ep-pC4" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="57m-5L-nXZ"/>
+                            <constraint firstItem="8qk-ee-Dfe" firstAttribute="top" secondItem="5tg-Ep-pC4" secondAttribute="bottom" constant="17" id="Kli-K6-Jsh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5tg-Ep-pC4" secondAttribute="trailing" constant="157" id="PW0-Vy-owN"/>
+                            <constraint firstItem="6ch-fP-fcM" firstAttribute="top" secondItem="nQd-Sh-73e" secondAttribute="topMargin" constant="50" id="REL-ce-HyD"/>
+                            <constraint firstItem="Ccn-Iw-c1x" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="Ral-aA-Mqu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zMQ-oT-67W" secondAttribute="trailing" constant="157" id="aZY-5N-94o"/>
+                            <constraint firstItem="Ccn-Iw-c1x" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="eCd-RS-pPH"/>
+                            <constraint firstItem="1DK-V9-E8n" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="fsS-XJ-CEc"/>
+                            <constraint firstItem="8qk-ee-Dfe" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="mcx-Vf-1mb"/>
+                            <constraint firstItem="zMQ-oT-67W" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="oES-E2-paj"/>
+                            <constraint firstItem="G4u-pe-INo" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="oGm-dD-Zuk"/>
+                            <constraint firstItem="G4u-pe-INo" firstAttribute="top" secondItem="zMQ-oT-67W" secondAttribute="bottom" constant="15" id="oPb-hq-HXO"/>
+                            <constraint firstItem="1DK-V9-E8n" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="oa6-RR-5Fd"/>
+                            <constraint firstItem="1DK-V9-E8n" firstAttribute="top" secondItem="6ch-fP-fcM" secondAttribute="bottom" constant="8" id="p8r-kt-IDB"/>
+                            <constraint firstItem="8qk-ee-Dfe" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="pRG-rI-9O7"/>
+                            <constraint firstItem="1DK-V9-E8n" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="5" id="pXh-2k-Aw8"/>
+                            <constraint firstItem="G4u-pe-INo" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="sNZ-zH-i7Y"/>
+                            <constraint firstItem="5tg-Ep-pC4" firstAttribute="top" secondItem="G4u-pe-INo" secondAttribute="bottom" constant="18" id="xO2-Tr-Wlj"/>
+                            <constraint firstItem="6ch-fP-fcM" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="xkr-wm-pSF"/>
+                            <constraint firstItem="G4u-pe-INo" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="yRO-0f-ksg"/>
+                            <constraint firstItem="zMQ-oT-67W" firstAttribute="top" secondItem="1DK-V9-E8n" secondAttribute="bottom" constant="15" id="zMU-m3-RwR"/>
+                            <constraint firstItem="JNG-tc-cNF" firstAttribute="top" secondItem="Ccn-Iw-c1x" secondAttribute="bottom" constant="20" id="zdW-gn-Bqu"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="nef-om-3Ge" appends="YES" id="yax-2d-kUe"/>
                         </connections>
