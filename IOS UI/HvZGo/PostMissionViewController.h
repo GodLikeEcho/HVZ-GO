@@ -12,7 +12,7 @@
 - (IBAction)goBack:(UISwipeGestureRecognizer *)sender;
 - (IBAction)toggleFaction:(UISegmentedControl *)sender;
 - (IBAction)clickMission:(UIButton *)sender;
--(void)postMission:(NSString*)username :(NSString*)password completion:(void (^)(NSDictionary *responseObject, NSError *error))completion;
+-(void)postMission:(NSString*)message :(NSString*)faction :(NSString*) endtime completion:(void (^)(NSDictionary *responseObject, NSError *error))completion;
 @property (weak, nonatomic) IBOutlet UITextField *timeBox;
 @property (weak, nonatomic) IBOutlet UITextView *textBox;
 

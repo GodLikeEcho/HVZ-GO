@@ -868,9 +868,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Days banned" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zMQ-oT-67W">
-                                <rect key="frame" x="15" y="193" width="128" height="30"/>
+                                <rect key="frame" x="15" y="194" width="128" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cgi-nk-2Ui"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ban Reason" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5tg-Ep-pC4">
+                                <rect key="frame" x="15" y="332" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZL9-72-MGv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -884,45 +892,37 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickBan:" destination="09x-TO-D3O" eventType="touchUpInside" id="2PJ-cq-tee"/>
+                                </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1DK-V9-E8n">
-                                <rect key="frame" x="15" y="88" width="285" height="90"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="EmA-c9-3xG"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G4u-pe-INo">
-                                <rect key="frame" x="15" y="238" width="285" height="76"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G4u-pe-INo">
+                                <rect key="frame" x="15" y="240" width="285" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="wZv-Vf-Q9Q"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8qk-ee-Dfe">
-                                <rect key="frame" x="15" y="379" width="285" height="73"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8qk-ee-Dfe">
+                                <rect key="frame" x="15" y="376" width="285" height="73"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="zjU-v3-jW7"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ban Reason" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5tg-Ep-pC4">
-                                <rect key="frame" x="15" y="332" width="128" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1DK-V9-E8n">
+                                <rect key="frame" x="15" y="96" width="285" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ZL9-72-MGv"/>
+                                    <constraint firstAttribute="height" constant="90" id="EmA-c9-3xG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -930,32 +930,33 @@
                             <constraint firstAttribute="trailingMargin" secondItem="6ch-fP-fcM" secondAttribute="trailing" constant="157" id="1eP-jX-0Nw"/>
                             <constraint firstItem="8qk-ee-Dfe" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="2cx-vt-80j"/>
                             <constraint firstItem="5tg-Ep-pC4" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="57m-5L-nXZ"/>
+                            <constraint firstItem="1DK-V9-E8n" firstAttribute="top" secondItem="6ch-fP-fcM" secondAttribute="bottom" constant="16" id="DOu-WK-sS0"/>
+                            <constraint firstItem="zMQ-oT-67W" firstAttribute="top" secondItem="1DK-V9-E8n" secondAttribute="bottom" constant="22" id="IZO-Gw-cob"/>
                             <constraint firstItem="8qk-ee-Dfe" firstAttribute="top" secondItem="5tg-Ep-pC4" secondAttribute="bottom" constant="17" id="Kli-K6-Jsh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5tg-Ep-pC4" secondAttribute="trailing" constant="157" id="PW0-Vy-owN"/>
                             <constraint firstItem="6ch-fP-fcM" firstAttribute="top" secondItem="nQd-Sh-73e" secondAttribute="topMargin" constant="50" id="REL-ce-HyD"/>
                             <constraint firstItem="Ccn-Iw-c1x" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="Ral-aA-Mqu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zMQ-oT-67W" secondAttribute="trailing" constant="157" id="aZY-5N-94o"/>
+                            <constraint firstItem="1DK-V9-E8n" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="dNj-o2-gdL"/>
                             <constraint firstItem="Ccn-Iw-c1x" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="eCd-RS-pPH"/>
-                            <constraint firstItem="1DK-V9-E8n" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="fsS-XJ-CEc"/>
-                            <constraint firstItem="8qk-ee-Dfe" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="mcx-Vf-1mb"/>
                             <constraint firstItem="zMQ-oT-67W" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="oES-E2-paj"/>
                             <constraint firstItem="G4u-pe-INo" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="oGm-dD-Zuk"/>
-                            <constraint firstItem="G4u-pe-INo" firstAttribute="top" secondItem="zMQ-oT-67W" secondAttribute="bottom" constant="15" id="oPb-hq-HXO"/>
                             <constraint firstItem="1DK-V9-E8n" firstAttribute="trailing" secondItem="nQd-Sh-73e" secondAttribute="trailingMargin" id="oa6-RR-5Fd"/>
-                            <constraint firstItem="1DK-V9-E8n" firstAttribute="top" secondItem="6ch-fP-fcM" secondAttribute="bottom" constant="8" id="p8r-kt-IDB"/>
                             <constraint firstItem="8qk-ee-Dfe" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="pRG-rI-9O7"/>
-                            <constraint firstItem="1DK-V9-E8n" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="5" id="pXh-2k-Aw8"/>
-                            <constraint firstItem="G4u-pe-INo" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="sNZ-zH-i7Y"/>
                             <constraint firstItem="5tg-Ep-pC4" firstAttribute="top" secondItem="G4u-pe-INo" secondAttribute="bottom" constant="18" id="xO2-Tr-Wlj"/>
                             <constraint firstItem="6ch-fP-fcM" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="xkr-wm-pSF"/>
                             <constraint firstItem="G4u-pe-INo" firstAttribute="leading" secondItem="nQd-Sh-73e" secondAttribute="leadingMargin" constant="-5" id="yRO-0f-ksg"/>
-                            <constraint firstItem="zMQ-oT-67W" firstAttribute="top" secondItem="1DK-V9-E8n" secondAttribute="bottom" constant="15" id="zMU-m3-RwR"/>
                             <constraint firstItem="JNG-tc-cNF" firstAttribute="top" secondItem="Ccn-Iw-c1x" secondAttribute="bottom" constant="20" id="zdW-gn-Bqu"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="nef-om-3Ge" appends="YES" id="yax-2d-kUe"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="banBox" destination="1DK-V9-E8n" id="B8e-qG-UIh"/>
+                        <outlet property="dayBox" destination="G4u-pe-INo" id="XkA-OH-BIq"/>
+                        <outlet property="reasonBox" destination="8qk-ee-Dfe" id="GmE-ww-bmU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1s-Nn-hEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="nef-om-3Ge">
