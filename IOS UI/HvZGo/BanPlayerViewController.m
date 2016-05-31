@@ -47,19 +47,20 @@
     NSString *player = _banBox.text;
     NSString *days = _dayBox.text;
     NSString *reason = _reasonBox.text;
-    [self banPlayer:player :days :reason completion:^(NSDictionary *response, NSError *error) {
+    NSString *reqid = @"5";
+    [self banPlayer:player :days :reason :reqid completion:^(NSDictionary *response, NSError *error) {
         if (response) {
-            NSLog(@"Response: %@", response[@"faction"]);
-            //_faction = response[@"faction"];
+            NSLog(@"Response: %@", response[@"status"]);
         }
         else {
             NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);
+            NSLog(@"Response: %@", response[@"retVal"]);
         }
     }];
 
 }
 
--(void)banPlayer:(NSString*)player :(NSString*)days : (NSString*)reason completion:(void (^)(NSDictionary *responseObject, NSError *error))completion
+-(void)banPlayer:(NSString*)player :(NSString*)days : (NSString*)reason : (NSString*)reqid completion:(void (^)(NSDictionary *responseObject, NSError *error))completion
 {
     
     NSURL *url = [NSURL URLWithString:@"http://www.hvz-go.com/iosBanPlayer.php"];
@@ -67,12 +68,14 @@
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
     
+    
+    
     // 2
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"POST";
     
     // 3
-    NSDictionary *dictionary = @{@"player":player, @"days":days, @"reason":reason};
+    NSDictionary *dictionary = @{@"player":player, @"days":days, @"reason":reason, @"reqid":reqid};
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
                                                    options:kNilOptions error:&error];
