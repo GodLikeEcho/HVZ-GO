@@ -1163,6 +1163,10 @@
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xw-9t-rVg">
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PfI-lA-VJ4" appends="YES" id="AcG-VG-DkD"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1179,6 +1183,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jve-4x-C0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="PfI-lA-VJ4">
+                    <connections>
+                        <action selector="swipeBack:" destination="sBC-fK-Wjd" id="2Ef-qH-vlC"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3182" y="-2382"/>
         </scene>
@@ -1260,9 +1269,9 @@
         <image name="combbg" width="320" height="530"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ck7-Ds-reR"/>
         <segue reference="myE-8N-dCm"/>
         <segue reference="UbX-9h-eiS"/>
-        <segue reference="Ck7-Ds-reR"/>
-        <segue reference="0mv-c4-orO"/>
+        <segue reference="xRV-S6-4DV"/>
     </inferredMetricsTieBreakers>
 </document>

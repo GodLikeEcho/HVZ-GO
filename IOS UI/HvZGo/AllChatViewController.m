@@ -27,6 +27,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)swipeBack:(id)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModeratorVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
 
 /*
 #pragma mark - Navigation

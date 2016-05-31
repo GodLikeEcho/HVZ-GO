@@ -40,7 +40,7 @@
     //UITextField *password = alertController.textFields.lastObject;
     
     NSString *message = _textBox.text;
-    NSString *faction = @"Z";
+    NSString *faction = @"M";
     [self postAlert:message :faction completion:^(NSDictionary *response, NSError *error) {
         if (response) {
             NSLog(@"Response: %@", response[@"faction"]);
@@ -97,12 +97,16 @@
                                                   NSDictionary *returnedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
                                                   
                                                   if (!returnedData) {
+                                                      NSLog(@"No Data");
                                                       if (completion) {
                                                           dispatch_async(dispatch_get_main_queue(), ^{
                                                               completion(nil, parseError);
                                                           });
                                                       }
                                                       return;
+                                                  } else {
+                                                      NSLog(@"<%@>", returnedData[@"status"]);
+                                                  
                                                   }
                                                   
                                                   // if everything is ok, then just return the JSON object
