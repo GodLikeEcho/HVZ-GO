@@ -29,6 +29,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)swipeBack:(UISwipeGestureRecognizer *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation
@@ -39,6 +45,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 - (IBAction)SwitchToReportsView:(UIButton *)sender {
     UIStoryboard *storyboard = self.storyboard;

@@ -36,21 +36,7 @@
                                     <action selector="DisplayMissionsAlert:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iKK-FQ-0wA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNt-Px-nCz">
-                                <rect key="frame" x="16" y="224" width="288" height="79"/>
-                                <color key="backgroundColor" red="0.76611583770000002" green="0.38464528529999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="Bgj-Rm-Xdr"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Chat">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SwitchToChat:" destination="9pv-A4-QxB" eventType="touchUpInside" id="duo-Ko-ryE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbw-R0-7j3">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbw-R0-7j3">
                                 <rect key="frame" x="16" y="331" width="288" height="79"/>
                                 <color key="backgroundColor" red="0.76611583770000002" green="0.38464528529999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -75,24 +61,19 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="TtD-TJ-RuH" secondAttribute="bottom" constant="38" id="7SX-qz-ROa"/>
-                            <constraint firstItem="xNt-Px-nCz" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="8Pt-eq-5kU"/>
                             <constraint firstItem="udO-ps-eni" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="IVf-2R-oVJ"/>
                             <constraint firstItem="Pzs-6b-7W6" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="QdC-0D-OrY"/>
                             <constraint firstItem="udO-ps-eni" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="R5S-GX-IDj"/>
                             <constraint firstItem="tbw-R0-7j3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="T1w-6o-Uaq"/>
-                            <constraint firstItem="tbw-R0-7j3" firstAttribute="top" secondItem="xNt-Px-nCz" secondAttribute="bottom" constant="28" id="UI3-qZ-9oe"/>
                             <constraint firstItem="Pzs-6b-7W6" firstAttribute="top" secondItem="udO-ps-eni" secondAttribute="bottom" constant="19" id="ZF9-er-sRY"/>
                             <constraint firstItem="TtD-TJ-RuH" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="cLS-QR-OIi"/>
                             <constraint firstItem="udO-ps-eni" firstAttribute="top" secondItem="P2c-46-o1p" secondAttribute="bottom" constant="8" id="dT4-HE-EtM"/>
                             <constraint firstItem="TtD-TJ-RuH" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="eQN-1d-b1A"/>
-                            <constraint firstItem="xNt-Px-nCz" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="fEm-v0-6nt"/>
-                            <constraint firstItem="xNt-Px-nCz" firstAttribute="top" secondItem="Pzs-6b-7W6" secondAttribute="bottom" constant="26" id="nig-PT-LHJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TtD-TJ-RuH" secondAttribute="trailing" constant="-20" id="nss-qV-ik5"/>
                             <constraint firstItem="tbw-R0-7j3" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="qcF-Qv-nrC"/>
                             <constraint firstItem="Pzs-6b-7W6" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="tCl-54-5ac"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="EbR-cm-dnl" appends="YES" id="9tS-CP-B5G"/>
                             <outletCollection property="gestureRecognizers" destination="bi2-pX-IVR" appends="YES" id="Nyh-HE-B5I"/>
                         </connections>
                     </view>
@@ -102,33 +83,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="EbR-cm-dnl"/>
-                <swipeGestureRecognizer direction="right" id="bi2-pX-IVR"/>
+                <swipeGestureRecognizer direction="right" id="bi2-pX-IVR">
+                    <connections>
+                        <action selector="swipeBack:" destination="9pv-A4-QxB" id="eZW-mL-Y50"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1052" y="-4207"/>
-        </scene>
-        <!--HumanChatView-->
-        <scene sceneID="JQz-9T-hr2">
-            <objects>
-                <viewController storyboardIdentifier="HumanChatView" title="HumanChatView" id="qhm-11-iH4" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="htJ-0B-EeQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="49T-fy-KNz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cwI-pC-jHs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="HumanBg" translatesAutoresizingMaskIntoConstraints="NO" id="uv5-13-arg">
-                                <rect key="frame" x="0.0" y="20" width="320" height="530"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wtq-vP-hnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="199" y="-4207"/>
         </scene>
         <!--ZombieVC-->
         <scene sceneID="Db2-6U-C2E">
@@ -162,9 +123,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Vy4-MX-hfO">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="530"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="190-3q-u1i">
                                 <rect key="frame" x="16" y="49" width="288" height="60"/>
                                 <color key="backgroundColor" red="0.50523560208010476" green="0.051679336744084758" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,20 +138,6 @@
                                     <action selector="DisplayMissionsAlert:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eUu-nU-YbK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvI-y1-a0e">
-                                <rect key="frame" x="16" y="133" width="288" height="48"/>
-                                <color key="backgroundColor" red="0.50523560208010476" green="0.051679336744084758" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="dug-gN-lxf"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Chat">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SwitchToChat:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="DUt-Uw-fyK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJR-bt-XYW">
                                 <rect key="frame" x="16" y="289" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.50523560209999996" green="0.051679336739999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,8 +148,8 @@
                                     <action selector="DisplayTagAlert:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="PGC-zE-D80"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-nE-SVU">
-                                <rect key="frame" x="16" y="206" width="288" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-nE-SVU">
+                                <rect key="frame" x="16" y="181" width="288" height="48"/>
                                 <color key="backgroundColor" red="0.50523560208010476" green="0.051679336744084758" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Ebo-qN-g3F"/>
@@ -219,19 +163,20 @@
                                     <action selector="DisplayRulesAlert:" destination="9pv-A4-QxB" eventType="touchUpInside" id="BIX-Hw-2ab"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Vy4-MX-hfO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="530"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ztP-hI-yc2" appends="YES" id="3Wh-KV-ur2"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.64383589659685869" green="0.065856428112291615" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="190-3q-u1i" firstAttribute="top" secondItem="9hY-yJ-dZF" secondAttribute="bottom" constant="29" id="NlT-it-SgT"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Vy4-MX-hfO" secondAttribute="bottom" constant="38" id="P7W-GJ-pZ7"/>
                             <constraint firstItem="190-3q-u1i" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" constant="4" id="Pwl-LK-eOg"/>
-                            <constraint firstItem="NvI-y1-a0e" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-4" id="QA7-0Y-8sF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vy4-MX-hfO" secondAttribute="trailing" constant="-20" id="cb3-1L-6S7"/>
                             <constraint firstItem="Vy4-MX-hfO" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="dtW-U1-O2n"/>
-                            <constraint firstItem="Vy4-MX-hfO" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="eD4-VX-7d0"/>
-                            <constraint firstItem="NvI-y1-a0e" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" constant="4" id="ed5-2k-tjQ"/>
-                            <constraint firstItem="S8c-nE-SVU" firstAttribute="top" secondItem="NvI-y1-a0e" secondAttribute="bottom" constant="25" id="i6i-Jn-jbV"/>
-                            <constraint firstItem="NvI-y1-a0e" firstAttribute="top" secondItem="190-3q-u1i" secondAttribute="bottom" constant="24" id="kWj-Or-YWl"/>
                             <constraint firstItem="Vy4-MX-hfO" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="oZ1-Zy-mXF"/>
                             <constraint firstItem="S8c-nE-SVU" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-4" id="rw0-yy-hNw"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Vy4-MX-hfO" secondAttribute="bottom" constant="38" id="shS-Wb-gU1"/>
@@ -242,31 +187,13 @@
                     <tabBarItem key="tabBarItem" title="Zombie UI" image="ZombieImg" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="ztP-hI-yc2">
+                    <connections>
+                        <action selector="swipeBack:" destination="8rJ-Kc-sve" id="bX0-gd-qzj"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1036" y="-2456"/>
-        </scene>
-        <!--ZombieChatView-->
-        <scene sceneID="ooy-LK-S2q">
-            <objects>
-                <viewController storyboardIdentifier="ZombieChatView" title="ZombieChatView" id="7hP-a5-G8k" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="x2s-np-va5"/>
-                        <viewControllerLayoutGuide type="bottom" id="rRw-84-urO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t69-Py-gtu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="99q-ff-qPs">
-                                <rect key="frame" x="0.0" y="20" width="320" height="530"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1cf-GQ-DKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="199" y="-2710"/>
         </scene>
         <!--SettingsUI-->
         <scene sceneID="llx-8c-MUD">
@@ -316,92 +243,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVp-fP-IZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-837" y="-3446"/>
-        </scene>
-        <!--ChatView-->
-        <scene sceneID="qA8-nr-FS8">
-            <objects>
-                <viewController storyboardIdentifier="ChatView" title="ChatView" id="W4k-tz-0iW" customClass="ChatViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wwO-Pl-o4q"/>
-                        <viewControllerLayoutGuide type="bottom" id="00F-CS-JJN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="S18-54-58d">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewq-sg-Xp1">
-                                <rect key="frame" x="80" y="190" width="159" height="30"/>
-                                <color key="backgroundColor" red="0.90937909029999997" green="0.45657374830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Faction Chat"/>
-                                <connections>
-                                    <action selector="SwitchToFactionChatView" destination="W4k-tz-0iW" eventType="touchUpInside" id="F6u-ac-aWY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5a-lZ-3MX">
-                                <rect key="frame" x="80" y="87" width="159" height="30"/>
-                                <color key="backgroundColor" red="0.90937909029999997" green="0.45657374830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="All Chat"/>
-                                <connections>
-                                    <action selector="SwitchToAllChatView" destination="W4k-tz-0iW" eventType="touchUpInside" id="eBC-Wb-sY5"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="combbg" translatesAutoresizingMaskIntoConstraints="NO" id="LYM-pt-4vE">
-                                <rect key="frame" x="0.0" y="20" width="320" height="530"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oJZ-tn-KSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-341" y="-3440"/>
-        </scene>
-        <!--AllChatView-->
-        <scene sceneID="dBl-e8-BeR">
-            <objects>
-                <viewController storyboardIdentifier="AllChatViewController" title="AllChatView" id="15u-9U-GTq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V0C-d7-GYC"/>
-                        <viewControllerLayoutGuide type="bottom" id="43i-g8-Oox"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j9S-Xe-1JS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="combbg" translatesAutoresizingMaskIntoConstraints="NO" id="noE-dI-xa1">
-                                <rect key="frame" x="-4" y="20" width="328" height="548"/>
-                            </imageView>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSa-28-6Kx">
-                                <rect key="frame" x="20" y="49" width="280" height="338"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVo-wu-Acj">
-                                <rect key="frame" x="20" y="395" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XSa-28-6Kx" firstAttribute="leading" secondItem="j9S-Xe-1JS" secondAttribute="leadingMargin" constant="4" id="Bkw-a3-JbE"/>
-                            <constraint firstItem="43i-g8-Oox" firstAttribute="top" secondItem="noE-dI-xa1" secondAttribute="bottom" id="LnY-Wh-cAR"/>
-                            <constraint firstItem="XSa-28-6Kx" firstAttribute="leading" secondItem="DVo-wu-Acj" secondAttribute="leading" id="MNL-o6-avi"/>
-                            <constraint firstItem="DVo-wu-Acj" firstAttribute="top" secondItem="XSa-28-6Kx" secondAttribute="bottom" constant="8" id="Wr6-yK-9Ud"/>
-                            <constraint firstItem="noE-dI-xa1" firstAttribute="leading" secondItem="j9S-Xe-1JS" secondAttribute="leadingMargin" constant="-20" id="b92-fn-hA4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="noE-dI-xa1" secondAttribute="trailing" constant="-20" id="g4X-vd-MVB"/>
-                            <constraint firstItem="XSa-28-6Kx" firstAttribute="trailing" secondItem="DVo-wu-Acj" secondAttribute="trailing" id="gcu-3H-0gD"/>
-                            <constraint firstItem="XSa-28-6Kx" firstAttribute="top" secondItem="V0C-d7-GYC" secondAttribute="bottom" constant="29" id="iwA-n1-bLR"/>
-                            <constraint firstAttribute="bottom" secondItem="XSa-28-6Kx" secondAttribute="bottom" constant="181" id="lrk-oH-XX2"/>
-                            <constraint firstItem="XSa-28-6Kx" firstAttribute="centerX" secondItem="noE-dI-xa1" secondAttribute="centerX" id="sTM-Aa-rt9"/>
-                            <constraint firstItem="noE-dI-xa1" firstAttribute="top" secondItem="V0C-d7-GYC" secondAttribute="bottom" id="z7f-pV-fYj"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LqV-fv-ohj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="199" y="-3440"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="4Zz-09-pNi">
@@ -580,20 +421,6 @@
                                     <action selector="SwitchToBanPlayerView:" destination="ZBB-f6-i5b" eventType="touchUpInside" id="g8j-rI-6U7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-cf-VNv">
-                                <rect key="frame" x="16" y="192" width="288" height="60"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="WGA-M6-drE"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Edit Game Settings">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SwitchToGameSettingsView:" destination="ZBB-f6-i5b" eventType="touchUpInside" id="avV-4q-OPS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0F3-Tr-MNF">
                                 <rect key="frame" x="16" y="420" width="288" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -622,8 +449,24 @@
                                     <action selector="SwitchToPostMissionView:" destination="ZBB-f6-i5b" eventType="touchUpInside" id="QlS-tl-dSE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-cf-VNv">
+                                <rect key="frame" x="16" y="192" width="288" height="60"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="WGA-M6-drE"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Edit Game Settings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SwitchToGameSettingsView:" destination="ZBB-f6-i5b" eventType="touchUpInside" id="avV-4q-OPS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3d6-7m-Gl6" firstAttribute="top" secondItem="T51-ve-muX" secondAttribute="bottom" constant="8" id="8J3-I9-9Jm"/>
                             <constraint firstItem="GRp-U1-p4b" firstAttribute="top" secondItem="3d6-7m-Gl6" secondAttribute="bottom" constant="35" id="97C-zy-8Nd"/>
@@ -644,10 +487,18 @@
                             <constraint firstItem="0F3-Tr-MNF" firstAttribute="top" secondItem="Thi-5z-HJK" secondAttribute="bottom" constant="22" id="rJR-4f-t3H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3d6-7m-Gl6" secondAttribute="trailing" constant="-4" id="tFz-1R-6lr"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="2Fi-eJ-CYI" appends="YES" id="5c2-j2-dKo"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Moderator UI" image="HumanImg" id="DGz-DX-u0O" userLabel="Moderator UI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZJ-wZ-191" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="2Fi-eJ-CYI">
+                    <connections>
+                        <action selector="swipeBack:" destination="ZBB-f6-i5b" id="EsM-Ag-goq"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="443" y="-1781"/>
         </scene>
@@ -721,6 +572,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="LXS-42-ytI"/>
                     <connections>
+                        <outlet property="ToggleFactionOutput" destination="wyq-tB-csj" id="pXa-aQ-tkg"/>
                         <outlet property="textBox" destination="W4L-CN-5OF" id="zVO-cG-0rt"/>
                     </connections>
                 </viewController>
@@ -1130,6 +982,10 @@
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dUY-6S-pGX">
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Bog-rM-BIs" appends="YES" id="luo-Qa-hMA"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1146,6 +1002,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWk-qt-Lwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Bog-rM-BIs">
+                    <connections>
+                        <action selector="swipeBack:" destination="xk4-ey-an6" id="lrd-hY-VCv"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3844" y="-828"/>
         </scene>
@@ -1186,7 +1047,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jve-4x-C0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="PfI-lA-VJ4">
                     <connections>
-                        <action selector="swipeBack:" destination="sBC-fK-Wjd" id="2Ef-qH-vlC"/>
+                        <action selector="swipeBack:" destination="sBC-fK-Wjd" id="6n4-ff-KLp"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -1207,6 +1068,10 @@
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-sT-Iyf">
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2sy-lW-Z2E" appends="YES" id="XFw-P6-euP"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1223,6 +1088,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7Q-to-Oic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="2sy-lW-Z2E">
+                    <connections>
+                        <action selector="swipeBack:" destination="6ob-wN-O4V" id="QkX-cJ-Y7k"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3006" y="-1640"/>
         </scene>
@@ -1241,6 +1111,10 @@
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4F0-vS-xah">
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xyd-wY-bki" appends="YES" id="D9H-pf-PRs"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1257,6 +1131,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGm-5n-QPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="xyd-wY-bki">
+                    <connections>
+                        <action selector="swipeBack:" destination="DOb-V0-Cex" id="pKd-Hr-JiT"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2662" y="-828"/>
         </scene>
@@ -1270,9 +1149,9 @@
         <image name="combbg" width="320" height="530"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ck7-Ds-reR"/>
-        <segue reference="myE-8N-dCm"/>
-        <segue reference="UbX-9h-eiS"/>
-        <segue reference="xRV-S6-4DV"/>
+        <segue reference="0Xu-9a-0Gs"/>
+        <segue reference="Z9T-WZ-mwx"/>
+        <segue reference="d5H-m2-FIr"/>
+        <segue reference="IlF-3l-hqS"/>
     </inferredMetricsTieBreakers>
 </document>

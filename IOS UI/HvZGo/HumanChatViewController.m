@@ -27,6 +27,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)swipeBack:(UISwipeGestureRecognizer *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"HumanVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+
+}
 
 /*
 #pragma mark - Navigation

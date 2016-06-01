@@ -24,6 +24,11 @@
                          userInfo:nil
                          repeats:YES];
 }
+- (IBAction)swipeBack:(UISwipeGestureRecognizer *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,6 +65,7 @@
 
     
 }
+
 
 -(IBAction)DisplayMissionsAlert:(id)sender {
     

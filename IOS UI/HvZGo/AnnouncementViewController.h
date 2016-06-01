@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AnnouncementViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISegmentedControl *ToggleFactionOutput;
 - (IBAction)factionChoice:(UISegmentedControl *)sender;
 @property (weak, nonatomic) IBOutlet UITextView *textBox;
 - (IBAction)sendButton:(UIButton *)sender;

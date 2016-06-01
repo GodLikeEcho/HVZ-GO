@@ -1,5 +1,5 @@
 //
-//  ModChatViewController.h
+//  ModeratorChatViewController.h
 //  HvZGo
 //
 //  Created by Clint Jellesed on 5/3/16.

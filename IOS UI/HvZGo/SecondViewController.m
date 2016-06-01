@@ -50,6 +50,11 @@
     
     
 }
+- (IBAction)swipeBack:(UISwipeGestureRecognizer *)sender {
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 -(IBAction)DisplayMissionsAlert:(id)sender {
     
