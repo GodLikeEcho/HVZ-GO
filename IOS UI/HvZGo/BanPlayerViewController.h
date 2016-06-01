@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *banBox;
 @property (weak, nonatomic) IBOutlet UITextView *dayBox;
 @property (weak, nonatomic) IBOutlet UITextView *reasonBox;
--(void)banPlayer:(NSString*)player :(NSString*)days :(NSString*)reason :(NSString*)reqid completion:(void (^)(NSDictionary *responseObject, NSError *error))completion;
+-(void)banPlayer:(NSString*)player :(NSString*)endtime :(NSString*)reason :(NSString*)reqid completion:(void (^)(NSDictionary *responseObject, NSError *error))completion;
 
 @end
