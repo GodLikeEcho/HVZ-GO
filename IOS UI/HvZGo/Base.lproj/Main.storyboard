@@ -813,6 +813,7 @@
                     <connections>
                         <outlet property="textBox" destination="Rtf-VD-dMy" id="mrP-io-5BT"/>
                         <outlet property="timeBox" destination="JNb-1A-dhG" id="ifK-BY-VGy"/>
+                        <outlet property="toggleFactionOutlet" destination="PF6-GT-wbI" id="H1q-Vc-7Pc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tad-pL-7ax" userLabel="First Responder" sceneMemberID="firstResponder"/>

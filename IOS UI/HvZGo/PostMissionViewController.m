@@ -34,6 +34,7 @@
 }
 */
 
+NSString *faction = @"H";
 - (IBAction)goBack:(UISwipeGestureRecognizer *)sender {
     UIStoryboard *storyboard = self.storyboard;
     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ModeratorVC"];
@@ -41,6 +42,14 @@
 }
 
 - (IBAction)toggleFaction:(UISegmentedControl *)sender {
+    if(_toggleFactionOutlet.selectedSegmentIndex == 0)
+    {
+        faction = @"H";
+    }
+    else if(_toggleFactionOutlet.selectedSegmentIndex == 1)
+    {
+        faction = @"Z";
+    }
 }
 
 - (IBAction)clickMission:(UIButton *)sender {
@@ -48,12 +57,23 @@
     //UITextField *password = alertController.textFields.lastObject;
     
     NSString *message = _textBox.text;
-    NSString *faction = @"Z";
+    //NSString *faction = @"Z";
     //Send endtime here
-    NSString *endtime = _timeBox.text;
+    //NSString *endtime = _timeBox.text;
+    int inttime = [_timeBox.text intValue];
+    NSDateFormatter *gmtDateFormatter = [[NSDateFormatter alloc] init];
+    gmtDateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    gmtDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *mydate = [NSDate date];
+    NSTimeInterval secondsInHours = inttime * 60 * 60;
+    NSDate *newDate = [mydate dateByAddingTimeInterval:secondsInHours];
+    NSString *endtime = [gmtDateFormatter stringFromDate:newDate];
+    NSLog(@"Response: %@", endtime );
+
     [self postMission:message :faction :endtime completion:^(NSDictionary *response, NSError *error) {
         if (response) {
-            NSLog(@"Response: %@", response[@"faction"]);
+            NSLog(@"Response: %@", response[@"status"]);
+            NSLog(@"Log: %@ %@ %@", message, faction, endtime);
             //_faction = response[@"faction"];
         }
         else {
@@ -75,7 +95,7 @@
     request.HTTPMethod = @"POST";
     
     // 3
-    NSDictionary *dictionary = @{@"mission":message, @"faction":faction, @"endtime":endtime};
+    NSDictionary *dictionary = @{@"message":message, @"faction":faction, @"endtime":endtime};
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
                                                    options:kNilOptions error:&error];
