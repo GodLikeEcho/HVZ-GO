@@ -33,15 +33,15 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+NSString *anfaction = @"M";
 - (IBAction)sendButton:(UIButton *)sender {
-    
+    //NSString *faction = @"M";
     //UITextField *login = _textBox.text;
     //UITextField *password = alertController.textFields.lastObject;
     
     NSString *message = _textBox.text;
-    NSString *faction = @"M";
-    [self postAlert:message :faction completion:^(NSDictionary *response, NSError *error) {
+    
+    [self postAlert:message :anfaction completion:^(NSDictionary *response, NSError *error) {
         if (response) {
             NSLog(@"Response: %@", response[@"faction"]);
             //_faction = response[@"faction"];
@@ -74,7 +74,7 @@
     request.HTTPMethod = @"POST";
     
     // 3
-    NSDictionary *dictionary = @{@"message":message, @"faction":faction};
+    NSDictionary *dictionary = @{@"message":message, @"faction":anfaction};
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
                                                    options:kNilOptions error:&error];
@@ -131,6 +131,17 @@
 
 
 - (IBAction)factionChoice:(UISegmentedControl *)sender {
-    NSString *selected = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+   if (_ToggleFactionOutput.selectedSegmentIndex == 0)
+   {
+       anfaction = @"H";
+   }
+    else if (_ToggleFactionOutput.selectedSegmentIndex == 1)
+    {
+        anfaction = @"Z";
+    }
+    else if (_ToggleFactionOutput.selectedSegmentIndex == 2)
+    {
+        anfaction = @"A";
+    }
 }
 @end
