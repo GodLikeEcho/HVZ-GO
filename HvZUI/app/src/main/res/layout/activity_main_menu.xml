@@ -37,4 +37,15 @@
         android:layout_centerHorizontal="true"
         android:onClick="signUp_click" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test create"
+        android:id="@+id/moveTocreateTest"
+        android:onClick="create_test_click"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
+
 </RelativeLayout>
