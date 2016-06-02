@@ -2,14 +2,9 @@ package redacted.hvzui;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.PendingIntent;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,19 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -126,65 +112,6 @@ public class UserMenu extends AppCompatActivity {
     {
         Intent intnt = new Intent(this, Z_settings.class);
         startActivity(intnt);
-    }
-
-    public void QR_show_click(View v)
-    {
-        try
-        {
-            generateQRCode_and_show();
-        }
-        catch(WriterException e)
-        {
-
-        }
-
-    }
-
-    private void generateQRCode_and_show()throws WriterException {
-        com.google.zxing.Writer writer = new QRCodeWriter();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String data = prefs.getString("username", "");
-
-        String finaldata = Uri.encode(data, "utf-8");
-
-        int size = 800;
-
-        BitMatrix bm = writer.encode(finaldata, BarcodeFormat.QR_CODE,size, size);
-        Bitmap ImageBitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
-
-        for (int i = 0; i < size; i++) {//width
-            for (int j = 0; j < size; j++) {//height
-                ImageBitmap.setPixel(i, j, bm.get(i, j) ? Color.BLACK: Color.WHITE);
-            }
-        }
-
-        if(ImageBitmap != null) {
-
-            Log.v("img generated", "");
-            Dialog builder = new Dialog(this);
-            builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            builder.getWindow().setBackgroundDrawable(
-                    new ColorDrawable(android.graphics.Color.TRANSPARENT));
-            builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialogInterface) {
-                    //nothing;
-                }
-            });
-
-            Log.v("Username", data);
-
-            ImageView imageView = new ImageView(this);
-
-            imageView.setImageBitmap(ImageBitmap);
-            builder.addContentView(imageView, new RelativeLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
-            builder.show();
-
-        }
-
     }
 
     public void setColor()

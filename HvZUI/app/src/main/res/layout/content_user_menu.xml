@@ -35,24 +35,11 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="Show QR Tag"
-        android:id="@+id/showQR"
-
-        android:background="#fb8a00"
-
-        android:onClick="QR_show_click"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true" />
-
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
         android:text="Mission"
         android:id="@+id/button3"
         android:background="#fb8a00"
         android:onClick="missions_Click"
-        android:layout_below="@+id/showQR"
+        android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true" />
 
     <Button
