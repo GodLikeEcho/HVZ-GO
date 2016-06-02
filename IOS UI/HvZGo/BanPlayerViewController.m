@@ -41,8 +41,6 @@
 }
 
 - (IBAction)clickBan:(UIButton *)sender {
-    //UITextField *login = _textBox.text;
-    //UITextField *password = alertController.textFields.lastObject;
     
     NSString *player = _banBox.text;
     int days = [_dayBox.text intValue];
@@ -62,6 +60,7 @@
     [self banPlayer:player :endtime :reason :reqid completion:^(NSDictionary *response, NSError *error) {
         if (response) {
             NSLog(@"Response: %@", response[@"status"]);
+            NSLog(@"Items: %@ %@ %@ %@", player, endtime, reason, reqid);
         }
         else {
             NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);
