@@ -45,6 +45,17 @@ NSString *anfaction = @"M";
         if (response) {
             NSLog(@"Response: %@", response[@"faction"]);
             //_faction = response[@"faction"];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Status"
+                                                                           message:[NSString stringWithFormat: @"%C Success: Announcement has been posted.\n", (unichar) 0x2022]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+
         }
         else {
             NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);

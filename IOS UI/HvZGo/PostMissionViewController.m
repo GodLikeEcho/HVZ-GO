@@ -75,9 +75,47 @@ NSString *faction = @"H";
             NSLog(@"Response: %@", response[@"status"]);
             NSLog(@"Log: %@ %@ %@", message, faction, endtime);
             //_faction = response[@"faction"];
+           if([response[@"status"]  isEqual: @"success"])
+           {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Status"
+                                                                           message:[NSString stringWithFormat: @"%C Success: Mission has been posted.\n", (unichar) 0x2022]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+           }
+           else {
+               NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);
+               UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Status"
+                                                                              message:[NSString stringWithFormat: @"%C Failure: Recieved incorrect parameters.\n", (unichar) 0x2022]
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+               
+               UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                                     handler:^(UIAlertAction * action) {}];
+               
+               
+               [alert addAction:defaultAction];
+               [self presentViewController:alert animated:YES completion:nil];
+
+           }
         }
         else {
             NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Status"
+                                                                           message:[NSString stringWithFormat: @"%C Failure: No response recieved.\n", (unichar) 0x2022]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+
         }
     }];
 }

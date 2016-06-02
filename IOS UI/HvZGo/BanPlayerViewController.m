@@ -61,10 +61,32 @@
         if (response) {
             NSLog(@"Response: %@", response[@"status"]);
             NSLog(@"Items: %@ %@ %@ %@", player, endtime, reason, reqid);
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Status"
+                                                                           message:[NSString stringWithFormat: @"%C Success: Player has been banned.\n", (unichar) 0x2022]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+
         }
         else {
             NSLog(@"%s: Server Request Error: %@", __FUNCTION__, error);
             NSLog(@"Response: %@", response[@"retVal"]);
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Status"
+                                                                           message:[NSString stringWithFormat: @"%C Success: Player has been banned.\n", (unichar) 0x2022]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+
         }
     }];
 
